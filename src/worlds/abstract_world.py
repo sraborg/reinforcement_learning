@@ -1,5 +1,9 @@
 import abc
 
+##
+# Abstract Class for all worlds
+#
+
 
 class AbstractWorld(metaclass=abc.ABCMeta):
 
@@ -27,11 +31,16 @@ class AbstractWorld(metaclass=abc.ABCMeta):
     def perform_action(self, state, action):
         pass;
 
-    """
-    Returns a list of all available states
-    """
+    ##
+    # Returns a list of all available states
+    #
     def get_states(self):
         pass
 
+    ##
+    # Returns a list of all actions for a given state
+    # @param state the state
+    # @:return actions
     def get_actions(self, state):
         pass
+

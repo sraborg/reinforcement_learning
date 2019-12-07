@@ -12,6 +12,7 @@ def main():
     agent1 = Agent(policy_algorithm=value_iteration, world=world)
     agent2 = Agent(policy_algorithm=policy_iteration, world=world)
 
-
+    agent2.generate_policy(world)
+    
 if __name__ == "__main__":
     main()

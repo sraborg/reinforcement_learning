@@ -40,5 +40,5 @@ class Agent:
     ##
     # Generates a new policy for the set world using the set policyAlgorithm
     #
-    def generate_policy(self):
-        self.policy = self.policy_algorithm.generate_policy()
+    def generate_policy(self, world):
+        self.policy = self.policy_algorithm.generate_policy(world)

@@ -25,7 +25,7 @@ class AbstractWorld(metaclass=abc.ABCMeta):
 
     @abc.abstractmethod
     def perform_action(self, state, action):
-        pass;
+        pass
 
     ##
     #   Add Transition Dynamics

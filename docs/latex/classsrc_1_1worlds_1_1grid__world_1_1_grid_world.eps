@@ -5,7 +5,7 @@
 %%For: 
 %Magnification: 1.00
 %%Orientation: Portrait
-%%BoundingBox: 0 0 500 120.000000
+%%BoundingBox: 0 0 500 80.000000
 %%Pages: 0
 %%BeginSetup
 %%EndSetup
@@ -19,13 +19,13 @@
 /marginwidth 10 def
 /distx 20 def
 /disty 40 def
-/boundaspect 4.166667 def  % aspect ratio of the BoundingBox (width/height)
+/boundaspect 6.250000 def  % aspect ratio of the BoundingBox (width/height)
 /boundx 500 def
 /boundy boundx boundaspect div def
 /xspacing 0 def
 /yspacing 0 def
 /rows 3 def
-/cols 2 def
+/cols 3 def
 /scalefactor 0 def
 /boxfont /Times-Roman findfont fontheight scalefont def
 
@@ -175,6 +175,7 @@ boxfont setfont
 1 boundaspect scale
 (src.worlds.grid_world.GridWorld) cw
 (src.worlds.abstract_world.AbstractWorld) cw
+(ABC) cw
 (metaclass) cw
 (ABCMeta) cw
 /boxwidth boxwidth marginwidth 2 mul add def
@@ -188,21 +189,26 @@ boundx scalefactor div boundy scalefactor div scale
 
 % ----- classes -----
 
- (src.worlds.grid_world.GridWorld) 0.500000 0.000000 box
+ (src.worlds.grid_world.GridWorld) 1.000000 0.000000 box
  (src.worlds.abstract_world.AbstractWorld) 0.500000 1.000000 box
+ (ABC) 1.500000 1.000000 box
  (metaclass) 0.000000 2.000000 box
  (ABCMeta) 1.000000 2.000000 box
 
 % ----- relations -----
 
 solid
-0 0.500000 0.000000 out
+0 1.000000 0.000000 out
+solid
+0.500000 1.500000 1.000000 conn
 solid
 1 0.500000 1.000000 in
 solid
 0 0.500000 1.000000 out
 solid
 0.000000 1.000000 2.000000 conn
+solid
+1 1.500000 1.000000 in
 solid
 1 0.000000 2.000000 in
 solid

@@ -24,7 +24,7 @@ class GridWorld(AbstractWorld, ABC):
     #
     # @param state The starting state
     # @param action The action to perform
-    # @return the resulting state
+    # @return the resulting state, the reward
     #
     def perform_action(self, state, action):
         reward = self._state_actions.get((state, action))[0]

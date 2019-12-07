@@ -19,6 +19,7 @@ class GridWorld(AbstractWorld, ABC):
     def __init__(self):
         super().__init__()
         self.load_grid_from_file("grid_1.txt")
+        print(self.get_states())
     ##
     # Generates episodes using a given policy
     #
@@ -46,7 +47,6 @@ class GridWorld(AbstractWorld, ABC):
 
         next_state = successor_states[np.random.choice(len(successor_states), p=probabilities)]
         return next_state, reward
-
 
     ##
     # Creates an entire gridworld model by loading a file.

@@ -42,12 +42,12 @@ class AbstractWorld(metaclass=abc.ABCMeta):
         else:
             self._state_actions[(values[0][0], values[0][1])] = values[1]
 
-
     ##
     # Returns a list of all available states
     #
     def get_states(self):
-        pass
+        states, actions = zip(*self._state_actions.keys())
+        return list(set(states))
 
     ##
     # Returns a list of all actions for a given state

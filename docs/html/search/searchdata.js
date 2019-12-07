@@ -1,8 +1,8 @@
 var indexSectionsWithContent =
 {
-  0: "_acgpsuv",
+  0: "_acglpsuv",
   1: "acgpuv",
-  2: "_agps"
+  2: "_aglps"
 };
 
 var indexSectionNames =

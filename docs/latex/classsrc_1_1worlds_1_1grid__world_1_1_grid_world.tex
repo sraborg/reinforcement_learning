@@ -8,7 +8,7 @@ Grid World.
 Inheritance diagram for src.\+worlds.\+grid\+\_\+world.\+Grid\+World\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=3.000000cm]{classsrc_1_1worlds_1_1grid__world_1_1_grid_world}
+\includegraphics[height=2.240000cm]{classsrc_1_1worlds_1_1grid__world_1_1_grid_world}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
@@ -20,13 +20,37 @@ def {\bfseries \+\_\+\+\_\+init\+\_\+\+\_\+} (self)
 \mbox{\Hypertarget{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a2ec82897b648609647d645f9b5835593}\label{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a2ec82897b648609647d645f9b5835593}} 
 def {\bfseries run\+\_\+policy} (self, policy, iterations=1)
 \item 
-\mbox{\Hypertarget{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a93de8a88475e8ad0530fe703343028c9}\label{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a93de8a88475e8ad0530fe703343028c9}} 
-def {\bfseries perform\+\_\+action} (self, state, action)
-\end{DoxyCompactItemize}
+def \hyperlink{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a93de8a88475e8ad0530fe703343028c9}{perform\+\_\+action} (self, state, action)
+\begin{DoxyCompactList}\small\item\em Determines the reward and resulting state after performing an action on the given state. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 Grid World. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a93de8a88475e8ad0530fe703343028c9}\label{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a93de8a88475e8ad0530fe703343028c9}} 
+\index{src\+::worlds\+::grid\+\_\+world\+::\+Grid\+World@{src\+::worlds\+::grid\+\_\+world\+::\+Grid\+World}!perform\+\_\+action@{perform\+\_\+action}}
+\index{perform\+\_\+action@{perform\+\_\+action}!src\+::worlds\+::grid\+\_\+world\+::\+Grid\+World@{src\+::worlds\+::grid\+\_\+world\+::\+Grid\+World}}
+\subsubsection{\texorpdfstring{perform\+\_\+action()}{perform\_action()}}
+{\footnotesize\ttfamily def src.\+worlds.\+grid\+\_\+world.\+Grid\+World.\+perform\+\_\+action (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{state,  }\item[{}]{action }\end{DoxyParamCaption})}
+
+
+
+Determines the reward and resulting state after performing an action on the given state. 
+
+Actions selected are weighted using the probabilities defined in self.\+\_\+state\+\_\+actions.\+get(state, action)
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & The starting state \\
+\hline
+{\em action} & The action to perform \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the resulting state, the reward 
+\end{DoxyReturn}
+
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

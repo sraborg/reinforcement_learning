@@ -20,9 +20,6 @@ def {\bfseries \+\_\+\+\_\+init\+\_\+\+\_\+} (self)
 \mbox{\Hypertarget{classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world_a9da9b2c6a2403e83b08ba43d53a43d7d}\label{classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world_a9da9b2c6a2403e83b08ba43d53a43d7d}} 
 def {\bfseries states} (self)
 \item 
-\mbox{\Hypertarget{classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world_a341fa28f1e3f825d1a26f4b23c438fb9}\label{classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world_a341fa28f1e3f825d1a26f4b23c438fb9}} 
-def {\bfseries state\+\_\+actions} (self, state)
-\item 
 \mbox{\Hypertarget{classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world_adbb238f1675445eab7c0b002f9860aec}\label{classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world_adbb238f1675445eab7c0b002f9860aec}} 
 def {\bfseries transitions} (self, state, action)
 \item 
@@ -32,6 +29,8 @@ def {\bfseries run\+\_\+policy} (self, policy, iterations=1)
 \mbox{\Hypertarget{classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world_a3ef3e0539760634d7edfb132ee994cbb}\label{classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world_a3ef3e0539760634d7edfb132ee994cbb}} 
 def {\bfseries perform\+\_\+action} (self, state, action)
 \item 
+def \hyperlink{classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world_a0cafa6f47ff6a2c0afe7156e40e893fe}{add\+\_\+transition} (self, values)
+\begin{DoxyCompactList}\small\item\em Add Transition Dynamics. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world_a1c5c774e258d31c703dc7a95280a686d}\label{classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world_a1c5c774e258d31c703dc7a95280a686d}} 
 def \hyperlink{classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world_a1c5c774e258d31c703dc7a95280a686d}{get\+\_\+states} (self)
 \begin{DoxyCompactList}\small\item\em Returns a list of all available states. \end{DoxyCompactList}\item 
@@ -43,6 +42,21 @@ def \hyperlink{classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world_a177196a
 Abstract Class for all worlds. 
 
 \subsection{Member Function Documentation}
+\mbox{\Hypertarget{classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world_a0cafa6f47ff6a2c0afe7156e40e893fe}\label{classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world_a0cafa6f47ff6a2c0afe7156e40e893fe}} 
+\index{src\+::worlds\+::abstract\+\_\+world\+::\+Abstract\+World@{src\+::worlds\+::abstract\+\_\+world\+::\+Abstract\+World}!add\+\_\+transition@{add\+\_\+transition}}
+\index{add\+\_\+transition@{add\+\_\+transition}!src\+::worlds\+::abstract\+\_\+world\+::\+Abstract\+World@{src\+::worlds\+::abstract\+\_\+world\+::\+Abstract\+World}}
+\subsubsection{\texorpdfstring{add\+\_\+transition()}{add\_transition()}}
+{\footnotesize\ttfamily def src.\+worlds.\+abstract\+\_\+world.\+Abstract\+World.\+add\+\_\+transition (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{values }\end{DoxyParamCaption})}
+
+
+
+Add Transition Dynamics. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em values} & a tuple of the following format ( (state, action), (reward, \mbox{[}(probability, next\+\_\+state)\mbox{]}) ) \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world_a177196a17a32460d8076eaffa643646b}\label{classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world_a177196a17a32460d8076eaffa643646b}} 
 \index{src\+::worlds\+::abstract\+\_\+world\+::\+Abstract\+World@{src\+::worlds\+::abstract\+\_\+world\+::\+Abstract\+World}!get\+\_\+actions@{get\+\_\+actions}}
 \index{get\+\_\+actions@{get\+\_\+actions}!src\+::worlds\+::abstract\+\_\+world\+::\+Abstract\+World@{src\+::worlds\+::abstract\+\_\+world\+::\+Abstract\+World}}

@@ -10,7 +10,6 @@ class Agent:
     # Constructor
     # @param a keyword dictionary with optional
     #
-    #
     def __init__(self, **keyword_parameters):
 
         self.policy_algorithm = None

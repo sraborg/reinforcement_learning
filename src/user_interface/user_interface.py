@@ -1,5 +1,6 @@
 from interface import Interface
 
+
 ##
 # General Interface for all user interfaces
 #
@@ -7,4 +8,3 @@ from interface import Interface
 
 class UserInterface(Interface):
     pass
-

@@ -43,4 +43,3 @@ class Agent:
     #
     def generate_policy(self):
         self.policy = self.policy_algorithm.generate_policy()
-

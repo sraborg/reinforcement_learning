@@ -1,5 +1,6 @@
 from .user_interface import UserInterface
 
+
 ##
 # Command Line User Interface
 #
@@ -7,4 +8,3 @@ from .user_interface import UserInterface
 
 class CommandLineInterface(UserInterface):
     pass
-

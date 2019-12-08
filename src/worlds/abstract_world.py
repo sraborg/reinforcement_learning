@@ -54,5 +54,6 @@ class AbstractWorld(metaclass=abc.ABCMeta):
     # @param state the state
     # @:return actions
     def get_actions(self, state):
+        states, actions = zip(*self._state_actions.keys())
         pass
 

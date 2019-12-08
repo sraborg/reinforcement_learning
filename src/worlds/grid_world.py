@@ -20,6 +20,7 @@ class GridWorld(AbstractWorld, ABC):
         super().__init__()
         self.load_grid_from_file("grid_1.txt")
         print(self.get_states())
+
     ##
     # Generates episodes using a given policy
     #
@@ -46,7 +47,7 @@ class GridWorld(AbstractWorld, ABC):
         successor_states = np.array(successor_states, dtype=object)
 
         next_state = successor_states[np.random.choice(len(successor_states), p=probabilities)]
-        return next_state, reward
+        return tuple(next_state), reward
 
     ##
     # Creates an entire gridworld model by loading a file.
@@ -196,7 +197,7 @@ class GridWorld(AbstractWorld, ABC):
             # Verify action
             if type(action_) is not cls:
                raise ValueError("Invalid Action")
-            
+
             resulting_action = None
 
             if relative_action_ is cls.UP:                                     # Go Forward

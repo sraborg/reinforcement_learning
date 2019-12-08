@@ -126,91 +126,97 @@ class GridWorld(AbstractWorld, ABC):
 
                         # For Each Action
                         for action_choice in self.Action:
-                            x,y = self.Action.get_target_state(state, action_choice)
+                            x,y = self._get_target_state(state, action_choice)
                             target_state = (x,y)
 
                             if is_valid(target_state, MAX_INDEX_X, MAX_INDEX_Y):
                                 transitions = []
                                 type = "W"
                                 # For Each Stocastic Resulting Action
-                                for stocastic_action in self.Action:
+                                for stocastic_action in self.RelativeAction:
 
-                                    resulting_action = self.Action.get_relative_action(action_choice, stocastic_action)
-                                    resulting_state = self.Action.get_target_state(state, resulting_action)
+                                    resulting_action = self._get_relative_action(action_choice, stocastic_action)
+                                    resulting_state = self._get_target_state(state, resulting_action)
 
                                     valid, type = is_valid(resulting_state, MAX_INDEX_X, MAX_INDEX_Y)
                                     if valid:
                                         if type == "R": # trap
-                                            transitions.append((trap_value, (probabilities[stocastic_action], resulting_state)))
+                                            transitions.append((trap_value, (probabilities[self.Action(stocastic_action.value)], resulting_state)))
                                         elif type == "G": # trap
-                                            transitions.append((goal_value, (probabilities[stocastic_action], resulting_state)))
+                                            transitions.append((goal_value, (probabilities[self.Action(stocastic_action.value)], resulting_state)))
                                         else: # Start & Normal States
-                                            transitions.append((reward, (probabilities[stocastic_action], resulting_state)))
+                                            transitions.append((reward, (probabilities[self.Action(stocastic_action.value)], resulting_state)))
                                     else:
-                                        transitions.append((reward, (probabilities[stocastic_action], state))) # Stay in same state
+                                        transitions.append((reward, (probabilities[self.Action(stocastic_action.value)], state))) # Stay in same state
 
                                 r, t = zip(*transitions.copy())
                                 self.add_transition(((state, action_choice), (r[0], t)))
 
     ##
-    # Inner Enumuration class representing the 4 valid grid actions
+    # Finds the state that the provided action is trying to go to
     #
+    # @param state the starting state
+    # @param action_ the action to perform from the provided state
+    # @return the state the action is attempting to reach
+    #
+    def _get_target_state(self, state, action_):
+        x = state[0]
+        y = state[1]
 
+        if action_ == self.Action.RIGHT:
+            y = state[1] + 1
+        elif action_ == self.Action.DOWN:
+            x = state[0] + 1
+        elif action_ == self.Action.LEFT:
+            y = state[1] - 1
+        elif action_ == self.Action.UP:
+            x = state[0] - 1
+        else:
+            raise ValueError("Invalid Action: ")
+
+        return x, y
+
+    ##
+    # @param action_ the chosen action
+    # @relative_action_ the stocastic action. Up = chosen action, Down = reverse action
+    #
+    # @return the result "absolute" action
+    def _get_relative_action(self, action_, relative_action_):
+
+        # Verify action
+        if type(action_) is not self.Action:
+            raise ValueError("Invalid Action")
+
+        resulting_action = None
+
+        if relative_action_.value == self.RelativeAction.FORWARD.value:  # Go Forward
+            resulting_action = action_
+        elif relative_action_.value == self.RelativeAction.BACKWARDS.value:  # Reverse Case
+            resulting_action = self.Action((action_.value - 2) % 4)
+        elif relative_action_.value == self.RelativeAction.RIGHT.value:
+            resulting_action = self.Action((action_.value + 1) % 4)
+        elif relative_action_.value == self.RelativeAction.LEFT.value:
+            resulting_action = self.Action((action_.value - 1) % 4)
+        else:
+            raise ValueError("Invalid Stocastic Action")
+
+        return resulting_action
+
+    class RelativeAction(Enum):
+        RIGHT = 0
+        BACKWARDS = 1
+        LEFT = 2
+        FORWARD = 3
+
+    ##
+    # Inner Enumeration class representing the 4 valid grid actions
+    #
     class Action(Enum):
         RIGHT = 0
         DOWN = 1
         LEFT = 2
         UP = 3
 
-        ##
-        # Finds the state that the provided action is trying to go to
-        #
-        # @param state the starting state
-        # @param action_ the action to perform from the provided state
-        # @return the state the action is attempting to reach
-        #
-        @classmethod
-        def get_target_state(cls, state, action_):
-            x = state[0]
-            y = state[1]
 
-            if action_ == cls.RIGHT:
-                y = state[0] + 1
-            elif action_ == cls.DOWN:
-                x = state[1] + 1
-            elif action_ == cls.LEFT:
-                y = state[0] - 1
-            elif action_ == cls.UP:
-                x = state[1] - 1
-            else:
-                raise ValueError("Invalid Action: ")
 
-            return x, y
-
-        ##
-        # @param action_ the chosen action
-        # @relative_action_ the stocastic action. Up = chosen action, Down = reverse action
-        #
-        # @return the result "absolute" action
-        @classmethod
-        def get_relative_action(cls, action_, relative_action_):
-
-            # Verify action
-            if type(action_) is not cls:
-               raise ValueError("Invalid Action")
-
-            resulting_action = None
-
-            if relative_action_ is cls.UP:                                     # Go Forward
-                resulting_action = action_
-            elif relative_action_ is cls.DOWN:                     # Reverse Case
-                resulting_action = cls((action_.value - 2) % 4)
-            elif relative_action_ is cls.RIGHT:
-                resulting_action = cls((action_.value + 1) % 4)
-            elif relative_action_ is cls.LEFT:
-                resulting_action = cls((action_.value - 1) % 4)
-            else:
-                raise ValueError("Invalid Stocastic Action")
-
-            return resulting_action
 

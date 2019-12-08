@@ -19,6 +19,7 @@ class GridWorld(AbstractWorld, ABC):
     def __init__(self):
         super().__init__()
         self.load_grid_from_file("grid_1.txt")
+        self.perform_action((1,0), self.Action.RIGHT)
         print(self.get_states())
 
     ##
@@ -134,17 +135,17 @@ class GridWorld(AbstractWorld, ABC):
                                 # For Each Stocastic Resulting Action
                                 for stocastic_action in self.Action:
 
-                                    relative_action = self.Action.get_relative_action(action_choice, stocastic_action)
-                                    stocastic_state = self.Action.get_target_state(state, stocastic_action)
+                                    resulting_action = self.Action.get_relative_action(action_choice, stocastic_action)
+                                    resulting_state = self.Action.get_target_state(state, resulting_action)
 
-                                    valid, type = is_valid(stocastic_state, MAX_INDEX_X, MAX_INDEX_Y)
+                                    valid, type = is_valid(resulting_state, MAX_INDEX_X, MAX_INDEX_Y)
                                     if valid:
                                         if type == "R": # trap
-                                            transitions.append((trap_value, (probabilities[stocastic_action], stocastic_state)))
+                                            transitions.append((trap_value, (probabilities[stocastic_action], resulting_state)))
                                         elif type == "G": # trap
-                                            transitions.append((goal_value, (probabilities[stocastic_action], stocastic_state)))
+                                            transitions.append((goal_value, (probabilities[stocastic_action], resulting_state)))
                                         else: # Start & Normal States
-                                            transitions.append((reward, (probabilities[stocastic_action], stocastic_state)))
+                                            transitions.append((reward, (probabilities[stocastic_action], resulting_state)))
                                     else:
                                         transitions.append((reward, (probabilities[stocastic_action], state))) # Stay in same state
 
@@ -174,13 +175,13 @@ class GridWorld(AbstractWorld, ABC):
             y = state[1]
 
             if action_ == cls.RIGHT:
-                x = state[0] + 1
+                y = state[0] + 1
             elif action_ == cls.DOWN:
-                y = state[1] + 1
+                x = state[1] + 1
             elif action_ == cls.LEFT:
-                x = state[0] - 1
+                y = state[0] - 1
             elif action_ == cls.UP:
-                y = state[1] - 1
+                x = state[1] - 1
             else:
                 raise ValueError("Invalid Action: ")
 

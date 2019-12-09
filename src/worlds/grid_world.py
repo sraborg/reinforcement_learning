@@ -20,14 +20,14 @@ class GridWorld(AbstractWorld, ABC):
         super().__init__()
         self.grid_width = 0
         self.grid_height = 0
+        self._grid = []
         self.load_grid_from_file("grid_1.txt")
-        self.perform_action((0,0), self.Action.EXIT)
-        print(self.get_states())
 
     ##
+    # Check whether a state with locations (x,y) is a terminal state
     #
-    #
-    #
+    # @param state an (x, y) tuple
+    # @return true/false
     def is_terminal_state(self, state):
         if self._state_types[state[0]][state[1]] == "R" or self._state_types[state[0]][state[1]] == "G":
             return True
@@ -68,6 +68,10 @@ class GridWorld(AbstractWorld, ABC):
         return None, reward
 
     ##
+    #
+    #
+
+    ##
     # Creates an entire gridworld model by loading a file.
     #
     # File must contain a grid of x,y rows and columns. Each entry must be 'B', 'G', 'R', 'W', 'Y' where 'B' => black (invalid) state, 'G' => green (goal) state, 'R' => red (trap) state, 'W' => white (normal) state, 'Y' => yellow (start) state.
@@ -96,113 +100,79 @@ class GridWorld(AbstractWorld, ABC):
 
         directory = Path("./grids")
 
-        # Preload state types from file
+        # Preload grid_ values
         with open(directory / filename) as file:
             lines = file.readlines()
             self.grid_width = len(lines)
             self.grid_height = len(lines[0].replace('\n',''))
 
             self._state_types = [None] * self.grid_height
+            self._grid = [None] * self.grid_height
             for i in range(self.grid_width):
 
                 self._state_types[i] = [None] * self.grid_width
+                self._grid[i] = [None] * self.grid_width
                 for j in range(self.grid_height):
                     # Store state types
                     self._state_types[i][j] = lines[i][j]
+                    self._grid[i][j] = lines[i][j]
 
-
-        ##
-        # Inner Function that determines whether a (x,y) state is a valid location.
-        #
-        # Validates the (x,y) coordinate against the loaded file. If it valid, it also determines its states "type"
-        #
-        # @param x state's x coordinate
-        # @param y state's y coordinate
-        # @param max_index_x the number of columns
-        # @param max_index_y the number of rows
-        # @return boolean, type where boolean is true/false depending on if state (x,y) is valid and type is in {'B', 'G', 'R', 'W', 'Y'}
-        def is_valid(state, max_index_x, max_index_y):
-
-            pass
-            #if is_valid_grid_index(state, max_index_x, max_index_y):
-                #return False
-            #elif self._state_types[state[0]][[state[1]] == "B":
-                #return False
-            #else:
-                #return True
-
-        def is_valid_grid_index(state, max_index_x, max_index_y):
-            if state[0] < 0 or state[0] > max_index_x - 1 or \
-               state[1] < 0 or state[1] > max_index_y - 1:
-                return False
-            else:
-                return True
-
-        #with open(directory / filename) as file:
-         #   lines = file.readlines()
-          #  MAX_INDEX_X = len(lines)
-           # MAX_INDEX_Y = len(lines[0].replace('\n',''))
-
-            #self._state_types = [None] * MAX_INDEX_Y
 
         # Iterate all Possible states
         for i in range(self.grid_width):
-            #self._state_types[i] = [None] * MAX_INDEX_X
             for j in range(self.grid_height):
-                # Store state types
-                #self._state_types[i][j] = lines[i][j]
 
                 state = (i, j)
 
                 # For Each Valid State
-                if is_valid_grid_index(state, self.grid_width, self.grid_height) and not self._state_types[i][j] == "B":
-                    #valid_actions_with_probabilities.clear()
+                if self._is_valid_grid_location(i, j):
 
                     # Handle Terminal States
                     if self.is_terminal_state(state):
                         if self._state_types[state[0]][state[1]] == "R":
-                            self.add_transition(((state, self.Action.EXIT), (trap_exit_reward, None)))
+                            self.add_transition_old(((state, self.Action.EXIT), [(probabilities[self.Action.EXIT], None, trap_exit_reward)]))
                         elif self._state_types[state[0]][state[1]] == "G":
-                            self.add_transition(((state, self.Action.EXIT), (goal_exit_reward, None)))
-                    else:
+                            self.add_transition_old(((state, self.Action.EXIT), [(probabilities[self.Action.EXIT], None, goal_exit_reward)]))
 
+                    # Handle Non-Terminal States
+                    else:
                         # Create list of "normal" actions (no exit action)
                         normal_actions = list(self.Action)
                         normal_actions.remove(self.Action.EXIT)
 
-                        #valid_actions_with_probabilities = []  # (probability, action)
-
                         # For Each Normal Action (no exit action)
                         for action_choice in normal_actions:
-                            x,y = self._get_target_state(state, action_choice)
-                            target_state = (x, y)
-
-                            # Check if Target is Valid
-                            #if is_valid_grid_index(target_state, MAX_INDEX_X, MAX_INDEX_Y) and not self._state_types[i][j] == "B":
 
                             transitions = []
-
-                            # For Each Stocastic Resulting Action
+                            # Handle Stochastic Features
+                            # For Each Possible Resulting Action
                             for stocastic_action in self.RelativeAction:
 
                                 resulting_action = self._get_relative_action(action_choice, stocastic_action)
                                 resulting_state = self._get_target_state(state, resulting_action)
 
-                                #valid, type = is_valid(resulting_state, MAX_INDEX_X, MAX_INDEX_Y)
+                                # Check if the resulting state is value
+                                if self._is_valid_grid_location(resulting_state[0], resulting_state[1]):
 
-                                if is_valid_grid_index(resulting_state, self.grid_width, self.grid_height) and self._state_types[resulting_state[0]][resulting_state[1]] != "B":
-                                    if self._state_types[resulting_state[0]][resulting_state[1]] == "R": # trap
-                                        transitions.append((trap_exit_reward, (probabilities[self.Action(stocastic_action.value)], resulting_state)))
-                                    elif self._state_types[resulting_state[0]][resulting_state[1]] == "G": # trap
-                                        transitions.append((goal_exit_reward, (probabilities[self.Action(stocastic_action.value)], resulting_state)))
-                                    else: # Start & Normal States
-                                        transitions.append((reward, (probabilities[self.Action(stocastic_action.value)], resulting_state)))
+                                    # trap case
+                                    if self._grid[resulting_state[0]][resulting_state[1]] == "R":
+                                        transitions.append((probabilities[self.Action(stocastic_action.value)], resulting_state, reward))
 
+                                    # goal case
+                                    elif self._state_types[resulting_state[0]][resulting_state[1]] == "G":
+                                        transitions.append((probabilities[self.Action(stocastic_action.value)], resulting_state, reward))
+
+                                    # Start & Normal States case
+                                    else:
+                                        transitions.append((probabilities[self.Action(stocastic_action.value)], resulting_state, reward))
+
+                                # If resulting state is invalid, stay in original state
                                 else:
-                                    transitions.append((reward, (probabilities[self.Action(stocastic_action.value)], state))) # Stay in same state
+                                    transitions.append((probabilities[self.Action(stocastic_action.value)], state, reward)) # Stay in same state
 
-                            r, t = zip(*transitions.copy())
-                            self.add_transition(((state, action_choice), (r[0], t)))
+                            #r, t = zip(*transitions.copy())
+                            #self.add_transition_old(((state, action_choice), t))
+                            self.add_transition(state, action_choice, transitions)
 
     ##
     # Finds the state that the provided action is trying to go to
@@ -230,7 +200,7 @@ class GridWorld(AbstractWorld, ABC):
 
     ##
     # @param action_ the chosen action
-    # @relative_action_ the stocastic action. Up = chosen action, Down = reverse action
+    # @relative_action_ the stochastic action. Up = chosen action, Down = reverse action
     #
     # @return the result "absolute" action
     def _get_relative_action(self, action_, relative_action_):
@@ -250,17 +220,49 @@ class GridWorld(AbstractWorld, ABC):
         elif relative_action_.value == self.RelativeAction.LEFT.value:
             resulting_action = self.Action((action_.value - 1) % 4)
         else:
-            raise ValueError("Invalid Stocastic Action")
+            raise ValueError("Invalid Stochastic Action")
 
         return resulting_action
 
+    def _is_valid(self, x, y):
+        # if is_valid_grid_index(state, max_index_x, max_index_y):
+        # return False
+        # elif self._state_types[state[0]][[state[1]] == "B":
+        # return False
+        # else:
+        # return True
+        pass
+
+    ##
+    # Checks if a location (x, y) is a valid location
+    #
+    # @param x the x coordinate
+    # @param y the y coordinate
+    # @return true/false
+    def _is_valid_grid_location(self, x, y):
+        return self._is_valid_grid_coordinate(x, y) and self._grid[x][y] != "B"
+
+    ##
+    # Checks if a location (x, y) is in the grid space
+    #
+    # @param x the x coordinate
+    # @param y the y coordinate
+    # @return true/false
+    def _is_valid_grid_coordinate(self, x, y):
+        if x < 0 or x > self.grid_width - 1 or \
+           y < 0 or y > self.grid_height - 1:
+            return False
+        else:
+            return True
+
+    ##
+    # Inner Enumeration class representing the 4 stocastic action choices
+    #
     class RelativeAction(Enum):
         RIGHT = 0
         BACKWARDS = 1
         LEFT = 2
         FORWARD = 3
-
-
 
     ##
     # Inner Enumeration class representing the 4 valid grid actions

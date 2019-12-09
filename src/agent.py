@@ -18,11 +18,9 @@ class Agent:
 
         if "policy_algorithm" in keyword_parameters:
             self.policy_algorithm = keyword_parameters["policy_algorithm"]
-            print("Policy Set")
 
         if "world" in keyword_parameters:
             self.world = keyword_parameters["world"]
-            print("World Set")
 
     ##
     # Mutator: Sets policy attribute

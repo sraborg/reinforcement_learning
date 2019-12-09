@@ -1,5 +1,6 @@
 from interface import implements
 from .policy_algorithm import PolicyAlgorithm
+import random
 import numpy as np
 
 
@@ -11,31 +12,34 @@ import numpy as np
 
 
 class PolicyIteration(implements(PolicyAlgorithm)):
-    max_iterations = 1000
 
+    def __init__(self):
+        self._world = None
+        self._values_table = None
+        self._policy_table = None
     def policy_evaluation(self, value_table, world):
         return 0
 
     def generate_policy(self, world):
-        # mdp = world._state_actions
-        num_run = 0
-        value_table = {}
+
+        # Initialize
+        self._world = world
+        self._value_table = {}
+        self._policy_table = {}
         for state in world.get_states():
-            value_table[state] = 0.0
+            self._value_table[state] = 0.0
+            self._policy_table[state] = random.choice(world.get_actions(state))
 
-        for i in range(self.max_iterations):
-            is_stable = True
-            val_V = self.policy_evaluation(value_table, world)
+        self.policy_evalution()
 
-            # Go through each state and try to improve actions that were taken (policy Improvement)
-            # for state in range(environment.nS):
+    def policy_evalution(self, iterations=1000, theta=.5):
+        delta = 0
 
-        print(value_table[(1, 1)])
-        z, x = world.perform_action((3, 7), world.Action.RIGHT)
-        print(z)
-        print(x)
+        for state in self._world.get_states():
+            v = self._policy_table[state]       # Current value
 
-        evaluated_policies = 1
-        # for i in range(int(self.max_iterations)):
-        #    stable_policy = True
-        #    V = policy_evaluation(policy, environment, discount_factor=discount_factor)
+            transitions = self._world.get_transitions(state, self._policy_table[state])
+            #for action in transitions:
+
+
+        pass

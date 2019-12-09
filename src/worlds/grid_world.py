@@ -21,7 +21,18 @@ class GridWorld(AbstractWorld, ABC):
         self.grid_width = 0
         self.grid_height = 0
         self._grid = []
+        self.probabilities={
+            self.Action.UP: 0.8,
+            self.Action.RIGHT: 0.1,
+            self.Action.LEFT: 0.1,
+            self.Action.DOWN: 0.0,
+            self.Action.EXIT: 1.0
+        }
+        self.reward = 1,
+        self.trap_exit_reward = -1,
+        self.goal_exit_reward = 10,
         self.load_grid_from_file("grid_1.txt")
+        self._initialize_mdp()
 
     ##
     # Check whether a state with locations (x,y) is a terminal state
@@ -82,21 +93,7 @@ class GridWorld(AbstractWorld, ABC):
     # @param goal_value optional keyword that sets reward for green (goal) states globally
     # @param probabilities optional keyword that holds a dictionary with the following values: self.Action.UP => probability of going forward, self.Action.RIGHT => probability of going right, self.Action.LEFT => probability of going left, self.Action.DOWN => probability of going backward
     #
-    def load_grid_from_file(self, filename, *,
-                            reward=1,
-                            trap_exit_reward=-1,
-                            goal_exit_reward=10,
-                            probabilities=None
-                            ):
-
-        if probabilities is None:
-            probabilities={
-                self.Action.UP: 0.8,
-                self.Action.RIGHT: 0.1,
-                self.Action.LEFT: 0.1,
-                self.Action.DOWN: 0.0,
-                self.Action.EXIT: 1.0
-            }
+    def load_grid_from_file(self, filename):
 
         directory = Path("./grids")
 
@@ -117,7 +114,11 @@ class GridWorld(AbstractWorld, ABC):
                     self._state_types[i][j] = lines[i][j]
                     self._grid[i][j] = lines[i][j]
 
-
+    ##
+    #
+    #
+    #
+    def _initialize_mdp(self):
         # Iterate all Possible states
         for i in range(self.grid_width):
             for j in range(self.grid_height):
@@ -130,9 +131,9 @@ class GridWorld(AbstractWorld, ABC):
                     # Handle Terminal States
                     if self.is_terminal_state(state):
                         if self._state_types[state[0]][state[1]] == "R":
-                            self.add_transition_old(((state, self.Action.EXIT), [(probabilities[self.Action.EXIT], None, trap_exit_reward)]))
+                            self.add_transition_old(((state, self.Action.EXIT), [(self.probabilities[self.Action.EXIT], None, self.trap_exit_reward)]))
                         elif self._state_types[state[0]][state[1]] == "G":
-                            self.add_transition_old(((state, self.Action.EXIT), [(probabilities[self.Action.EXIT], None, goal_exit_reward)]))
+                            self.add_transition_old(((state, self.Action.EXIT), [(self.probabilities[self.Action.EXIT], None, self.goal_exit_reward)]))
 
                     # Handle Non-Terminal States
                     else:
@@ -156,19 +157,19 @@ class GridWorld(AbstractWorld, ABC):
 
                                     # trap case
                                     if self._grid[resulting_state[0]][resulting_state[1]] == "R":
-                                        transitions.append((probabilities[self.Action(stocastic_action.value)], resulting_state, reward))
+                                        transitions.append((self.probabilities[self.Action(stocastic_action.value)], resulting_state, self.reward))
 
                                     # goal case
                                     elif self._state_types[resulting_state[0]][resulting_state[1]] == "G":
-                                        transitions.append((probabilities[self.Action(stocastic_action.value)], resulting_state, reward))
+                                        transitions.append((self.probabilities[self.Action(stocastic_action.value)], resulting_state, self.reward))
 
                                     # Start & Normal States case
                                     else:
-                                        transitions.append((probabilities[self.Action(stocastic_action.value)], resulting_state, reward))
+                                        transitions.append((self.probabilities[self.Action(stocastic_action.value)], resulting_state, self.reward))
 
                                 # If resulting state is invalid, stay in original state
                                 else:
-                                    transitions.append((probabilities[self.Action(stocastic_action.value)], state, reward)) # Stay in same state
+                                    transitions.append((self.probabilities[self.Action(stocastic_action.value)], state, self.reward)) # Stay in same state
 
                             #r, t = zip(*transitions.copy())
                             #self.add_transition_old(((state, action_choice), t))

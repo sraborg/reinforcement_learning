@@ -36,6 +36,7 @@ class MontyCarlo(implements(PolicyAlgorithm)):
             episode = self.generate_episode(world, policy, start_state)
             G = {}
             reversed_episode = reversed(episode)
+            print("here")
             for i, step in enumerate(reversed_episode):
                 pass
 
@@ -44,19 +45,16 @@ class MontyCarlo(implements(PolicyAlgorithm)):
 
     def generate_episode(self, world, policy, start_state):
         episode = []
-        state = start_state
         next_state = start_state
 
         i =0
-        while(not world.is_terminal_state(state)):
+        while not world.is_terminal_state(next_state):
+            state = next_state
             action = policy[next_state]
             next_state, reward = world.perform_action(next_state, action)  # Perform Step
 
             episode.append((state, policy[next_state], reward, next_state))         # Add (state, action, reward) to episode
 
-            if (id(state) == id(next_state)):
-                print(str(i) + "match")
-                print(str(id(state)) + " ? " + str(id(next_state)))
             i = i +1
 
         return episode

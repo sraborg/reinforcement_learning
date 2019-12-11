@@ -83,13 +83,6 @@ class AbstractWorld(metaclass=abc.ABCMeta):
     ##
     #
     #
-    #
-    def get_mdp(self):
-        return self._state_actions.copy()
-
-    ##
-    #
-    #
     def get_transitions(self, state, action):
         return self._state_actions[(state, action)]
 
@@ -103,3 +96,10 @@ class AbstractWorld(metaclass=abc.ABCMeta):
         for successor in transitions:
             total_probability += successor[0]
         return True if total_probability == 1 else False
+
+    ##
+    #
+    #
+    #
+    def reward(self, state, action):
+        pass

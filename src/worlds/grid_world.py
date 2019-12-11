@@ -28,9 +28,9 @@ class GridWorld(AbstractWorld, ABC):
             self.Action.DOWN: 0.0,
             self.Action.EXIT: 1.0
         }
-        self.reward = 1,
-        self.trap_exit_reward = -1,
-        self.goal_exit_reward = 10,
+        self.normal_reward = 1
+        self.trap_exit_reward = -1
+        self.goal_exit_reward = 10
         self.load_grid_from_file("grid_1.txt")
         self._initialize_mdp()
 
@@ -65,18 +65,17 @@ class GridWorld(AbstractWorld, ABC):
     #
 
     def perform_action(self, state, action):
-        reward = self._state_actions.get((state, action))[0]
-        if self.is_terminal_state(state):
-            next_state = None
-        else:
-            successors = [s for s in self._state_actions.get((state, action))[1]]
-            probabilities, successor_states = zip(*successors)
+        next_state = None
+        reward = self.reward(state, action)
 
-            successor_states = np.array(successor_states, dtype=object)
+        transitions = self.get_transitions(state, action)
+        probabilities, successor_states = zip(*transitions)
 
-            next_state = successor_states[np.random.choice(len(successor_states), p=probabilities)]
-            return tuple(next_state), reward
-        return None, reward
+        successor_states = np.array(successor_states, dtype=object)
+
+        next_state = successor_states[np.random.choice(len(successor_states), p=probabilities)]
+        return tuple(next_state), reward
+
 
     ##
     #
@@ -131,9 +130,9 @@ class GridWorld(AbstractWorld, ABC):
                     # Handle Terminal States
                     if self.is_terminal_state(state):
                         if self._state_types[state[0]][state[1]] == "R":
-                            self.add_transition_old(((state, self.Action.EXIT), [(self.probabilities[self.Action.EXIT], None, self.trap_exit_reward)]))
+                            self.add_transition_old(((state, self.Action.EXIT), [(self.probabilities[self.Action.EXIT], None)]))
                         elif self._state_types[state[0]][state[1]] == "G":
-                            self.add_transition_old(((state, self.Action.EXIT), [(self.probabilities[self.Action.EXIT], None, self.goal_exit_reward)]))
+                            self.add_transition_old(((state, self.Action.EXIT), [(self.probabilities[self.Action.EXIT], None)]))
 
                     # Handle Non-Terminal States
                     else:
@@ -157,19 +156,19 @@ class GridWorld(AbstractWorld, ABC):
 
                                     # trap case
                                     if self._grid[resulting_state[0]][resulting_state[1]] == "R":
-                                        transitions.append((self.probabilities[self.Action(stocastic_action.value)], resulting_state, self.reward))
+                                        transitions.append((self.probabilities[self.Action(stocastic_action.value)], resulting_state))
 
                                     # goal case
                                     elif self._state_types[resulting_state[0]][resulting_state[1]] == "G":
-                                        transitions.append((self.probabilities[self.Action(stocastic_action.value)], resulting_state, self.reward))
+                                        transitions.append((self.probabilities[self.Action(stocastic_action.value)], resulting_state))
 
                                     # Start & Normal States case
                                     else:
-                                        transitions.append((self.probabilities[self.Action(stocastic_action.value)], resulting_state, self.reward))
+                                        transitions.append((self.probabilities[self.Action(stocastic_action.value)], resulting_state))
 
                                 # If resulting state is invalid, stay in original state
                                 else:
-                                    transitions.append((self.probabilities[self.Action(stocastic_action.value)], state, self.reward)) # Stay in same state
+                                    transitions.append((self.probabilities[self.Action(stocastic_action.value)], state)) # Stay in same state
 
                             #r, t = zip(*transitions.copy())
                             #self.add_transition_old(((state, action_choice), t))
@@ -275,6 +274,18 @@ class GridWorld(AbstractWorld, ABC):
         UP = 3
         EXIT = 4
 
-
-
-
+    ##
+    # Reward Function
+    #
+    #
+    def reward(self, state, action):
+        if self._state_types[state[0]][state[1]] == "W":
+            return self.normal_reward
+        elif self._state_types[state[0]][state[1]] == "R":
+            return self.trap_exit_reward
+        elif self._state_types[state[0]][state[1]] == "G":
+            return self.goal_exit_reward
+        elif self._state_types[state[0]][state[1]] == "Y":
+            return self.normal_reward
+        else:
+            raise ValueError

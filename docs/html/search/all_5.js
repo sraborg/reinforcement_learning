@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['montycarlo',['MontyCarlo',['../classsrc_1_1policy__algorithms_1_1monty__carlo_1_1_monty_carlo.html',1,'src::policy_algorithms::monty_carlo']]]
+  ['load_5fgrid_5ffrom_5ffile',['load_grid_from_file',['../classsrc_1_1worlds_1_1grid__world_1_1_grid_world.html#a49dba2f7cbb6c4f5ccb05b6c1f7a0000',1,'src::worlds::grid_world::GridWorld']]]
 ];

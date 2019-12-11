@@ -1,5 +1,9 @@
 var searchData=
 [
-  ['relativeaction',['RelativeAction',['../classsrc_1_1worlds_1_1grid__world_1_1_grid_world_1_1_relative_action.html',1,'src::worlds::grid_world::GridWorld']]],
-  ['run_5fpolicy',['run_policy',['../classsrc_1_1worlds_1_1grid__world_1_1_grid_world.html#acfc919972f8a9c974baa36134ee980a0',1,'src::worlds::grid_world::GridWorld']]]
+  ['perform_5faction',['perform_action',['../classsrc_1_1worlds_1_1grid__world_1_1_grid_world.html#a93de8a88475e8ad0530fe703343028c9',1,'src::worlds::grid_world::GridWorld']]],
+  ['policy_5fevalation',['policy_evalation',['../classsrc_1_1policy__algorithms_1_1policy__iteration_1_1_policy_iteration.html#aac6bf2e59dc9bd9859bcfe5008fe45dd',1,'src::policy_algorithms::policy_iteration::PolicyIteration']]],
+  ['policy_5fimprovement',['policy_improvement',['../classsrc_1_1policy__algorithms_1_1policy__iteration_1_1_policy_iteration.html#a8ab119a11521c5adc06f05e7fa0b34e4',1,'src::policy_algorithms::policy_iteration::PolicyIteration']]],
+  ['policyalgorithm',['PolicyAlgorithm',['../classsrc_1_1policy__algorithms_1_1policy__algorithm_1_1_policy_algorithm.html',1,'src::policy_algorithms::policy_algorithm']]],
+  ['policyanalytics',['PolicyAnalytics',['../classsrc_1_1policy__algorithms_1_1policy__analytics_1_1_policy_analytics.html',1,'src::policy_algorithms::policy_analytics']]],
+  ['policyiteration',['PolicyIteration',['../classsrc_1_1policy__algorithms_1_1policy__iteration_1_1_policy_iteration.html',1,'src::policy_algorithms::policy_iteration']]]
 ];

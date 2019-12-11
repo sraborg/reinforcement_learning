@@ -90,6 +90,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inner Enumeration class representing the 4 valid grid actions.  <a href="classsrc_1_1worlds_1_1grid__world_1_1_grid_world_1_1_action.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsrc_1_1worlds_1_1grid__world_1_1_grid_world_1_1_relative_action.html">RelativeAction</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inner Enumeration class representing the 4 stocastic action choices.  <a href="classsrc_1_1worlds_1_1grid__world_1_1_grid_world_1_1_relative_action.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -98,8 +99,8 @@ Public Member Functions</h2></td></tr>
 def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsrc_1_1worlds_1_1grid__world_1_1_grid_world.html#afe3c1b392afbc00fb9a76c14a6e07899">__init__</a> (self)</td></tr>
 <tr class="memdesc:afe3c1b392afbc00fb9a76c14a6e07899"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. <br /></td></tr>
 <tr class="separator:afe3c1b392afbc00fb9a76c14a6e07899"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99e2c85924fd138eb2ee698e29ad1d09"><td class="memItemLeft" align="right" valign="top"><a id="a99e2c85924fd138eb2ee698e29ad1d09"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>is_terminal_state</b> (self, state)</td></tr>
+<tr class="memitem:a99e2c85924fd138eb2ee698e29ad1d09"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsrc_1_1worlds_1_1grid__world_1_1_grid_world.html#a99e2c85924fd138eb2ee698e29ad1d09">is_terminal_state</a> (self, state)</td></tr>
+<tr class="memdesc:a99e2c85924fd138eb2ee698e29ad1d09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether a state with locations (x,y) is a terminal state.  <a href="#a99e2c85924fd138eb2ee698e29ad1d09">More...</a><br /></td></tr>
 <tr class="separator:a99e2c85924fd138eb2ee698e29ad1d09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acfc919972f8a9c974baa36134ee980a0"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsrc_1_1worlds_1_1grid__world_1_1_grid_world.html#acfc919972f8a9c974baa36134ee980a0">run_policy</a> (self, policy, start_state, iterations=1)</td></tr>
 <tr class="memdesc:acfc919972f8a9c974baa36134ee980a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates episodes using a given policy.  <a href="#acfc919972f8a9c974baa36134ee980a0">More...</a><br /></td></tr>
@@ -107,9 +108,9 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>is_terminal_state</b> 
 <tr class="memitem:a93de8a88475e8ad0530fe703343028c9"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsrc_1_1worlds_1_1grid__world_1_1_grid_world.html#a93de8a88475e8ad0530fe703343028c9">perform_action</a> (self, state, action)</td></tr>
 <tr class="memdesc:a93de8a88475e8ad0530fe703343028c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines the reward and resulting state after performing an action on the given state.  <a href="#a93de8a88475e8ad0530fe703343028c9">More...</a><br /></td></tr>
 <tr class="separator:a93de8a88475e8ad0530fe703343028c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d325c5372f0c9c5d98f17e896fb0d5f"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsrc_1_1worlds_1_1grid__world_1_1_grid_world.html#a0d325c5372f0c9c5d98f17e896fb0d5f">load_grid_from_file</a> (self, filename, reward=1, trap_exit_reward=-1, goal_exit_reward=10, probabilities=None)</td></tr>
-<tr class="memdesc:a0d325c5372f0c9c5d98f17e896fb0d5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an entire gridworld model by loading a file.  <a href="#a0d325c5372f0c9c5d98f17e896fb0d5f">More...</a><br /></td></tr>
-<tr class="separator:a0d325c5372f0c9c5d98f17e896fb0d5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49dba2f7cbb6c4f5ccb05b6c1f7a0000"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsrc_1_1worlds_1_1grid__world_1_1_grid_world.html#a49dba2f7cbb6c4f5ccb05b6c1f7a0000">load_grid_from_file</a> (self, filename)</td></tr>
+<tr class="memdesc:a49dba2f7cbb6c4f5ccb05b6c1f7a0000"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an entire gridworld model by loading a file.  <a href="#a49dba2f7cbb6c4f5ccb05b6c1f7a0000">More...</a><br /></td></tr>
+<tr class="separator:a49dba2f7cbb6c4f5ccb05b6c1f7a0000"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world.html">src.worlds.abstract_world.AbstractWorld</a></td></tr>
 <tr class="memitem:a8bdd47c57f049a3e396ea64f4659db77 inherit pub_methods_classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world"><td class="memItemLeft" align="right" valign="top"><a id="a8bdd47c57f049a3e396ea64f4659db77"></a>
 def&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b> (self)</td></tr>
@@ -129,9 +130,12 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>perform_action</b> (se
 <tr class="memitem:ae23093349cce428a7b0b924714d6e404 inherit pub_methods_classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world"><td class="memItemLeft" align="right" valign="top"><a id="ae23093349cce428a7b0b924714d6e404"></a>
 def&#160;</td><td class="memItemRight" valign="bottom"><b>is_terminal_state</b> (self, state)</td></tr>
 <tr class="separator:ae23093349cce428a7b0b924714d6e404 inherit pub_methods_classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0cafa6f47ff6a2c0afe7156e40e893fe inherit pub_methods_classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world.html#a0cafa6f47ff6a2c0afe7156e40e893fe">add_transition</a> (self, values)</td></tr>
-<tr class="memdesc:a0cafa6f47ff6a2c0afe7156e40e893fe inherit pub_methods_classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add Transition Dynamics.  <a href="classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world.html#a0cafa6f47ff6a2c0afe7156e40e893fe">More...</a><br /></td></tr>
-<tr class="separator:a0cafa6f47ff6a2c0afe7156e40e893fe inherit pub_methods_classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a299f2aea5e9f19d70b84dc744621f41e inherit pub_methods_classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world.html#a299f2aea5e9f19d70b84dc744621f41e">add_transition_old</a> (self, values)</td></tr>
+<tr class="memdesc:a299f2aea5e9f19d70b84dc744621f41e inherit pub_methods_classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add Transition Dynamics.  <a href="classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world.html#a299f2aea5e9f19d70b84dc744621f41e">More...</a><br /></td></tr>
+<tr class="separator:a299f2aea5e9f19d70b84dc744621f41e inherit pub_methods_classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add68c02b3b8a3f0c011c0a63f40febb3 inherit pub_methods_classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world.html#add68c02b3b8a3f0c011c0a63f40febb3">add_transition</a> (self, state, action, transitions)</td></tr>
+<tr class="memdesc:add68c02b3b8a3f0c011c0a63f40febb3 inherit pub_methods_classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add Transition Dynamics.  <a href="classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world.html#add68c02b3b8a3f0c011c0a63f40febb3">More...</a><br /></td></tr>
+<tr class="separator:add68c02b3b8a3f0c011c0a63f40febb3 inherit pub_methods_classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c5c774e258d31c703dc7a95280a686d inherit pub_methods_classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world"><td class="memItemLeft" align="right" valign="top"><a id="a1c5c774e258d31c703dc7a95280a686d"></a>
 def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world.html#a1c5c774e258d31c703dc7a95280a686d">get_states</a> (self)</td></tr>
 <tr class="memdesc:a1c5c774e258d31c703dc7a95280a686d inherit pub_methods_classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of all available states. <br /></td></tr>
@@ -139,9 +143,9 @@ def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 <tr class="memitem:a177196a17a32460d8076eaffa643646b inherit pub_methods_classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world.html#a177196a17a32460d8076eaffa643646b">get_actions</a> (self, state)</td></tr>
 <tr class="memdesc:a177196a17a32460d8076eaffa643646b inherit pub_methods_classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of all actions for a given state.  <a href="classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world.html#a177196a17a32460d8076eaffa643646b">More...</a><br /></td></tr>
 <tr class="separator:a177196a17a32460d8076eaffa643646b inherit pub_methods_classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad274c04e10cb0714f5efc9b7618ccc14 inherit pub_methods_classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world"><td class="memItemLeft" align="right" valign="top"><a id="ad274c04e10cb0714f5efc9b7618ccc14"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>get_mdp</b> (self)</td></tr>
-<tr class="separator:ad274c04e10cb0714f5efc9b7618ccc14 inherit pub_methods_classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8e4bb5e8651de5a1c7359f166741fdb inherit pub_methods_classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world"><td class="memItemLeft" align="right" valign="top"><a id="ac8e4bb5e8651de5a1c7359f166741fdb"></a>
+def&#160;</td><td class="memItemRight" valign="bottom"><b>get_transitions</b> (self, state, action)</td></tr>
+<tr class="separator:ac8e4bb5e8651de5a1c7359f166741fdb inherit pub_methods_classsrc_1_1worlds_1_1abstract__world_1_1_abstract_world"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -151,12 +155,61 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a0c1d14f392e1a056fbb320c0c88e719c"><td class="memItemLeft" align="right" valign="top"><a id="a0c1d14f392e1a056fbb320c0c88e719c"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>grid_height</b></td></tr>
 <tr class="separator:a0c1d14f392e1a056fbb320c0c88e719c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbc8fe8413d9191be1488488d4550180"><td class="memItemLeft" align="right" valign="top"><a id="abbc8fe8413d9191be1488488d4550180"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>probabilities</b></td></tr>
+<tr class="separator:abbc8fe8413d9191be1488488d4550180"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68e6b3958e05c0a649ddf87e33639398"><td class="memItemLeft" align="right" valign="top"><a id="a68e6b3958e05c0a649ddf87e33639398"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>reward</b></td></tr>
+<tr class="separator:a68e6b3958e05c0a649ddf87e33639398"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18aa801f8a69af6b6e4170dbfcf1b0fb"><td class="memItemLeft" align="right" valign="top"><a id="a18aa801f8a69af6b6e4170dbfcf1b0fb"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>trap_exit_reward</b></td></tr>
+<tr class="separator:a18aa801f8a69af6b6e4170dbfcf1b0fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace425e0be8de9023881ab40751531ba1"><td class="memItemLeft" align="right" valign="top"><a id="ace425e0be8de9023881ab40751531ba1"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>goal_exit_reward</b></td></tr>
+<tr class="separator:ace425e0be8de9023881ab40751531ba1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Grid World. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a0d325c5372f0c9c5d98f17e896fb0d5f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d325c5372f0c9c5d98f17e896fb0d5f">&#9670;&nbsp;</a></span>load_grid_from_file()</h2>
+<a id="a99e2c85924fd138eb2ee698e29ad1d09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99e2c85924fd138eb2ee698e29ad1d09">&#9670;&nbsp;</a></span>is_terminal_state()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def src.worlds.grid_world.GridWorld.is_terminal_state </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>state</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check whether a state with locations (x,y) is a terminal state. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">state</td><td>an (x, y) tuple </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true/false </dd></dl>
+
+</div>
+</div>
+<a id="a49dba2f7cbb6c4f5ccb05b6c1f7a0000"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49dba2f7cbb6c4f5ccb05b6c1f7a0000">&#9670;&nbsp;</a></span>load_grid_from_file()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -171,31 +224,7 @@ Public Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>filename</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>reward</em> = <code>1</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>trap_exit_reward</em> = <code>-1</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>goal_exit_reward</em> = <code>10</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>probabilities</em> = <code>None</code>&#160;</td>
+          <td class="paramname"><em>filename</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -213,21 +242,10 @@ Public Attributes</h2></td></tr>
     <tr><td class="paramname">reward</td><td>optional keyword that sets reward for white (normal) states globally </td></tr>
     <tr><td class="paramname">trap_value</td><td>optional keyword that sets reward for red (trap) states globally </td></tr>
     <tr><td class="paramname">goal_value</td><td>optional keyword that sets reward for green (goal) states globally </td></tr>
-    <tr><td class="paramname">probabilities</td><td>optional keyword that holds a dictionary with the following values: self.Action.UP =&gt; probability of going forward, self.Action.RIGHT =&gt; probability of going right, self.Action.LEFT =&gt; probability of going left, self.Action.DOWN =&gt; probability of going backward Inner Function that determines whether a (x,y) state is a valid location.</td></tr>
+    <tr><td class="paramname">probabilities</td><td>optional keyword that holds a dictionary with the following values: self.Action.UP =&gt; probability of going forward, self.Action.RIGHT =&gt; probability of going right, self.Action.LEFT =&gt; probability of going left, self.Action.DOWN =&gt; probability of going backward </td></tr>
   </table>
   </dd>
 </dl>
-<p>Validates the (x,y) coordinate against the loaded file. If it valid, it also determines its states "type"</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">x</td><td>state's x coordinate </td></tr>
-    <tr><td class="paramname">y</td><td>state's y coordinate </td></tr>
-    <tr><td class="paramname">max_index_x</td><td>the number of columns </td></tr>
-    <tr><td class="paramname">max_index_y</td><td>the number of rows </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>boolean, type where boolean is true/false depending on if state (x,y) is valid and type is in {'B', 'G', 'R', 'W', 'Y'} </dd></dl>
 
 </div>
 </div>

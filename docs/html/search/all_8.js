@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['set_5fpolicy',['set_policy',['../classsrc_1_1agent_1_1_agent.html#a40e0b7be81cba0248f4b6273d357eb27',1,'src::agent::Agent']]],
-  ['set_5fworld',['set_world',['../classsrc_1_1agent_1_1_agent.html#a5c84bc253f7ae188d87a839dbe73773a',1,'src::agent::Agent']]]
+  ['relativeaction',['RelativeAction',['../classsrc_1_1worlds_1_1grid__world_1_1_grid_world_1_1_relative_action.html',1,'src::worlds::grid_world::GridWorld']]],
+  ['run_5fpolicy',['run_policy',['../classsrc_1_1worlds_1_1grid__world_1_1_grid_world.html#acfc919972f8a9c974baa36134ee980a0',1,'src::worlds::grid_world::GridWorld']]]
 ];

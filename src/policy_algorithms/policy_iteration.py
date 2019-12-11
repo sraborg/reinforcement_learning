@@ -54,24 +54,27 @@ class PolicyIteration(PolicyAnalytics, implements(PolicyAlgorithm)):
         delta = 0
 
         for i in range(iterations):
-            #self.state_complexity = self.state_complexity + 1
 
             for state in self._world.get_states():
                 self.states_searched = self.states_searched + 1
-                old_value = self._value_table[state]       # Current value
 
-                transitions = self._world.get_transitions(state, self._policy_table[state])
+                old_value = self._value_table[state]       # Current value
+                action = self._policy_table[state]
+
+                transitions = self._world.get_transitions(state, action)
 
                 temp_rewards = []
-                for probability, next_state, reward in transitions:
+                for probability, next_state in transitions:
 
-                    # Check for Exit Case
+                    reward = self._world.reward(state, action)
+
+                    # Check for Exit Action Case
                     if next_state is None:
                         temp_rewards.append(reward)
                     else:
                         temp_rewards.append(probability * (reward + self.gamma * self._value_table[next_state]))
 
-                self._value_table[state] = sum(temp_rewards)
+                self._value_table[state] = max(temp_rewards)
                 delta = max(delta, abs(old_value - self._value_table[state]))
 
             # Test for early convergence
@@ -96,13 +99,13 @@ class PolicyIteration(PolicyAnalytics, implements(PolicyAlgorithm)):
                 transitions = self._world.get_transitions(state, action)
 
                 temp_rewards = []
-                for probability, next_state, reward in transitions:
+                for probability, next_state in transitions:
 
                     # Check for Exit Case
                     if next_state is None:
-                        temp_rewards.append(reward)
+                        temp_rewards.append(self._world.reward(state, action))
                     else:
-                        temp_rewards.append(probability * (reward + self.gamma * self._value_table[next_state]))
+                        temp_rewards.append(probability * (self._world.reward(state, action) + self.gamma * self._value_table[next_state]))
 
                 actions_values.append((action, max(temp_rewards)))
 

@@ -17,21 +17,20 @@ Inheritance diagram for src.\+worlds.\+grid\+\_\+world.\+Grid\+World\+:\begin{fi
 class \hyperlink{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_1_1_action}{Action}
 \begin{DoxyCompactList}\small\item\em Inner Enumeration class representing the 4 valid grid actions. \end{DoxyCompactList}\item 
 class \hyperlink{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_1_1_relative_action}{Relative\+Action}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Inner Enumeration class representing the 4 stocastic action choices. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_afe3c1b392afbc00fb9a76c14a6e07899}\label{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_afe3c1b392afbc00fb9a76c14a6e07899}} 
 def \hyperlink{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_afe3c1b392afbc00fb9a76c14a6e07899}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self)
 \begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a99e2c85924fd138eb2ee698e29ad1d09}\label{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a99e2c85924fd138eb2ee698e29ad1d09}} 
-def {\bfseries is\+\_\+terminal\+\_\+state} (self, state)
-\item 
+def \hyperlink{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a99e2c85924fd138eb2ee698e29ad1d09}{is\+\_\+terminal\+\_\+state} (self, state)
+\begin{DoxyCompactList}\small\item\em Check whether a state with locations (x,y) is a terminal state. \end{DoxyCompactList}\item 
 def \hyperlink{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_acfc919972f8a9c974baa36134ee980a0}{run\+\_\+policy} (self, policy, start\+\_\+state, iterations=1)
 \begin{DoxyCompactList}\small\item\em Generates episodes using a given policy. \end{DoxyCompactList}\item 
 def \hyperlink{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a93de8a88475e8ad0530fe703343028c9}{perform\+\_\+action} (self, state, action)
 \begin{DoxyCompactList}\small\item\em Determines the reward and resulting state after performing an action on the given state. \end{DoxyCompactList}\item 
-def \hyperlink{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a0d325c5372f0c9c5d98f17e896fb0d5f}{load\+\_\+grid\+\_\+from\+\_\+file} (self, filename, reward=1, trap\+\_\+exit\+\_\+reward=-\/1, goal\+\_\+exit\+\_\+reward=10, probabilities=None)
+def \hyperlink{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a49dba2f7cbb6c4f5ccb05b6c1f7a0000}{load\+\_\+grid\+\_\+from\+\_\+file} (self, filename)
 \begin{DoxyCompactList}\small\item\em Creates an entire gridworld model by loading a file. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -41,6 +40,18 @@ def \hyperlink{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a0d325c5372f0c9c
 \item 
 \mbox{\Hypertarget{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a0c1d14f392e1a056fbb320c0c88e719c}\label{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a0c1d14f392e1a056fbb320c0c88e719c}} 
 {\bfseries grid\+\_\+height}
+\item 
+\mbox{\Hypertarget{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_abbc8fe8413d9191be1488488d4550180}\label{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_abbc8fe8413d9191be1488488d4550180}} 
+{\bfseries probabilities}
+\item 
+\mbox{\Hypertarget{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a68e6b3958e05c0a649ddf87e33639398}\label{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a68e6b3958e05c0a649ddf87e33639398}} 
+{\bfseries reward}
+\item 
+\mbox{\Hypertarget{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a18aa801f8a69af6b6e4170dbfcf1b0fb}\label{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a18aa801f8a69af6b6e4170dbfcf1b0fb}} 
+{\bfseries trap\+\_\+exit\+\_\+reward}
+\item 
+\mbox{\Hypertarget{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_ace425e0be8de9023881ab40751531ba1}\label{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_ace425e0be8de9023881ab40751531ba1}} 
+{\bfseries goal\+\_\+exit\+\_\+reward}
 \end{DoxyCompactItemize}
 
 
@@ -48,11 +59,29 @@ def \hyperlink{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a0d325c5372f0c9c
 Grid World. 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a0d325c5372f0c9c5d98f17e896fb0d5f}\label{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a0d325c5372f0c9c5d98f17e896fb0d5f}} 
+\mbox{\Hypertarget{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a99e2c85924fd138eb2ee698e29ad1d09}\label{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a99e2c85924fd138eb2ee698e29ad1d09}} 
+\index{src\+::worlds\+::grid\+\_\+world\+::\+Grid\+World@{src\+::worlds\+::grid\+\_\+world\+::\+Grid\+World}!is\+\_\+terminal\+\_\+state@{is\+\_\+terminal\+\_\+state}}
+\index{is\+\_\+terminal\+\_\+state@{is\+\_\+terminal\+\_\+state}!src\+::worlds\+::grid\+\_\+world\+::\+Grid\+World@{src\+::worlds\+::grid\+\_\+world\+::\+Grid\+World}}
+\subsubsection{\texorpdfstring{is\+\_\+terminal\+\_\+state()}{is\_terminal\_state()}}
+{\footnotesize\ttfamily def src.\+worlds.\+grid\+\_\+world.\+Grid\+World.\+is\+\_\+terminal\+\_\+state (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{state }\end{DoxyParamCaption})}
+
+
+
+Check whether a state with locations (x,y) is a terminal state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & an (x, y) tuple \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true/false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a49dba2f7cbb6c4f5ccb05b6c1f7a0000}\label{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a49dba2f7cbb6c4f5ccb05b6c1f7a0000}} 
 \index{src\+::worlds\+::grid\+\_\+world\+::\+Grid\+World@{src\+::worlds\+::grid\+\_\+world\+::\+Grid\+World}!load\+\_\+grid\+\_\+from\+\_\+file@{load\+\_\+grid\+\_\+from\+\_\+file}}
 \index{load\+\_\+grid\+\_\+from\+\_\+file@{load\+\_\+grid\+\_\+from\+\_\+file}!src\+::worlds\+::grid\+\_\+world\+::\+Grid\+World@{src\+::worlds\+::grid\+\_\+world\+::\+Grid\+World}}
 \subsubsection{\texorpdfstring{load\+\_\+grid\+\_\+from\+\_\+file()}{load\_grid\_from\_file()}}
-{\footnotesize\ttfamily def src.\+worlds.\+grid\+\_\+world.\+Grid\+World.\+load\+\_\+grid\+\_\+from\+\_\+file (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{filename,  }\item[{}]{reward = {\ttfamily 1},  }\item[{}]{trap\+\_\+exit\+\_\+reward = {\ttfamily -\/1},  }\item[{}]{goal\+\_\+exit\+\_\+reward = {\ttfamily 10},  }\item[{}]{probabilities = {\ttfamily None} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily def src.\+worlds.\+grid\+\_\+world.\+Grid\+World.\+load\+\_\+grid\+\_\+from\+\_\+file (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{filename }\end{DoxyParamCaption})}
 
 
 
@@ -70,25 +99,9 @@ File must contain a grid of x,y rows and columns. Each entry must be \textquotes
 \hline
 {\em goal\+\_\+value} & optional keyword that sets reward for green (goal) states globally \\
 \hline
-{\em probabilities} & optional keyword that holds a dictionary with the following values\+: self.\+Action.\+UP =$>$ probability of going forward, self.\+Action.\+R\+I\+G\+HT =$>$ probability of going right, self.\+Action.\+L\+E\+FT =$>$ probability of going left, self.\+Action.\+D\+O\+WN =$>$ probability of going backward Inner Function that determines whether a (x,y) state is a valid location.\\
+{\em probabilities} & optional keyword that holds a dictionary with the following values\+: self.\+Action.\+UP =$>$ probability of going forward, self.\+Action.\+R\+I\+G\+HT =$>$ probability of going right, self.\+Action.\+L\+E\+FT =$>$ probability of going left, self.\+Action.\+D\+O\+WN =$>$ probability of going backward \\
 \hline
 \end{DoxyParams}
-Validates the (x,y) coordinate against the loaded file. If it valid, it also determines its states \char`\"{}type\char`\"{}
-
-
-\begin{DoxyParams}{Parameters}
-{\em x} & state\textquotesingle{}s x coordinate \\
-\hline
-{\em y} & state\textquotesingle{}s y coordinate \\
-\hline
-{\em max\+\_\+index\+\_\+x} & the number of columns \\
-\hline
-{\em max\+\_\+index\+\_\+y} & the number of rows \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-boolean, type where boolean is true/false depending on if state (x,y) is valid and type is in \{\textquotesingle{}B\textquotesingle{}, \textquotesingle{}G\textquotesingle{}, \textquotesingle{}R\textquotesingle{}, \textquotesingle{}W\textquotesingle{}, \textquotesingle{}Y\textquotesingle{}\} 
-\end{DoxyReturn}
 \mbox{\Hypertarget{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a93de8a88475e8ad0530fe703343028c9}\label{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a93de8a88475e8ad0530fe703343028c9}} 
 \index{src\+::worlds\+::grid\+\_\+world\+::\+Grid\+World@{src\+::worlds\+::grid\+\_\+world\+::\+Grid\+World}!perform\+\_\+action@{perform\+\_\+action}}
 \index{perform\+\_\+action@{perform\+\_\+action}!src\+::worlds\+::grid\+\_\+world\+::\+Grid\+World@{src\+::worlds\+::grid\+\_\+world\+::\+Grid\+World}}

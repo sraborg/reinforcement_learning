@@ -12,12 +12,8 @@ import numpy as np
 
 class PolicyIteration(implements(PolicyAlgorithm)):
     max_iterations = 1000
-    discount_factor = 1.0
 
     def policy_evaluation(self, value_table, world):
-        return 0
-
-    def lookahead(self, world, state, val_v, discount_factor):
         return 0
 
     def generate_policy(self, world):
@@ -27,22 +23,15 @@ class PolicyIteration(implements(PolicyAlgorithm)):
         for state in world.get_states():
             value_table[state] = 0.0
 
-        """
         for i in range(self.max_iterations):
             is_stable = True
-            val_v = self.policy_evaluation(value_table, world)
+            val_V = self.policy_evaluation(value_table, world)
 
-            for state in world.get_states():
-                current_action = np.argmax(state.get_actions())
-                action_value = self.lookahead(world, state, val_v, self.discount_factor)
-                best_action = np.argmax(action_value)
+            # Go through each state and try to improve actions that were taken (policy Improvement)
+            # for state in range(environment.nS):
 
-                if current_action != best_action:
-                    
-
-        """
         print(value_table[(1, 1)])
-        z, x = world.perform_action((2, 6), world.Action.RIGHT)
+        z, x = world.perform_action((3, 7), world.Action.RIGHT)
         print(z)
         print(x)
 

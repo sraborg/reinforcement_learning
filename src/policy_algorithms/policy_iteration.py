@@ -16,10 +16,10 @@ class PolicyIteration(PolicyAnalytics, implements(PolicyAlgorithm)):
     def __init__(self):
         super().__init__()
         self._world = None
-        self._value_table = None
         self._policy_table = None
+        self._gamma = .9
+        self._value_table = None
         self.evaluations = 0
-        self.gamma = .9
         self._policy_stable = True
 
     ##
@@ -72,7 +72,7 @@ class PolicyIteration(PolicyAnalytics, implements(PolicyAlgorithm)):
                     if next_state is None:
                         temp_rewards.append(reward)
                     else:
-                        temp_rewards.append(probability * (reward + self.gamma * self._value_table[next_state]))
+                        temp_rewards.append(probability * (reward + self._gamma * self._value_table[next_state]))
 
                 self._value_table[state] = max(temp_rewards)
                 delta = max(delta, abs(old_value - self._value_table[state]))
@@ -105,7 +105,7 @@ class PolicyIteration(PolicyAnalytics, implements(PolicyAlgorithm)):
                     if next_state is None:
                         temp_rewards.append(self._world.reward(state, action))
                     else:
-                        temp_rewards.append(probability * (self._world.reward(state, action) + self.gamma * self._value_table[next_state]))
+                        temp_rewards.append(probability * (self._world.reward(state, action) + self._gamma * self._value_table[next_state]))
 
                 actions_values.append((action, max(temp_rewards)))
 

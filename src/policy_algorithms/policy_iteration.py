@@ -17,36 +17,35 @@ class PolicyIteration(implements(PolicyAlgorithm)):
     def policy_evaluation(self, value_table, world):
         return 0
 
-    def lookahead(self, world, state, val_v):
+    def lookahead(self, world, state, val_v, discount_factor):
         return 0
 
     def generate_policy(self, world):
         # mdp = world._state_actions
-        num_runs = 0
+        num_run = 0
         value_table = {}
-        for state, action in world.get_states():
-            value_table[state] = action
+        for state in world.get_states():
+            value_table[state] = 0.0
 
-        for i in range(self.max_iterations):
-            is_stable = False
-            # val_v = self.policy_evaluation(value_table, world)
-
-            # for state in world.get_states():
-            # print(world.get_actions(state))
-            break
-
-        print(value_table)
         """
+        for i in range(self.max_iterations):
+            is_stable = True
+            val_v = self.policy_evaluation(value_table, world)
+
+            for state in world.get_states():
                 current_action = np.argmax(state.get_actions())
-                action_value = self.lookahead(world, state, val_v)
+                action_value = self.lookahead(world, state, val_v, self.discount_factor)
                 best_action = np.argmax(action_value)
 
                 if current_action != best_action:
+                    
 
+        """
+        print(value_table[(1, 1)])
         z, x = world.perform_action((2, 6), world.Action.RIGHT)
         print(z)
         print(x)
-        """
+
         evaluated_policies = 1
         # for i in range(int(self.max_iterations)):
         #    stable_policy = True

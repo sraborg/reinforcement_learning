@@ -1,0 +1,91 @@
+\hypertarget{classsrc_1_1policy__algorithms_1_1policy__iteration_1_1_policy_iteration}{}\section{src.\+policy\+\_\+algorithms.\+policy\+\_\+iteration.\+Policy\+Iteration Class Reference}
+\label{classsrc_1_1policy__algorithms_1_1policy__iteration_1_1_policy_iteration}\index{src.\+policy\+\_\+algorithms.\+policy\+\_\+iteration.\+Policy\+Iteration@{src.\+policy\+\_\+algorithms.\+policy\+\_\+iteration.\+Policy\+Iteration}}
+
+
+Policy Iteration Algorithm.  
+
+
+Inheritance diagram for src.\+policy\+\_\+algorithms.\+policy\+\_\+iteration.\+Policy\+Iteration\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.707317cm]{classsrc_1_1policy__algorithms_1_1policy__iteration_1_1_policy_iteration}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsrc_1_1policy__algorithms_1_1policy__iteration_1_1_policy_iteration_a3ea5779f89b73dc7a4ed60bb28aa38d8}\label{classsrc_1_1policy__algorithms_1_1policy__iteration_1_1_policy_iteration_a3ea5779f89b73dc7a4ed60bb28aa38d8}} 
+def {\bfseries \+\_\+\+\_\+init\+\_\+\+\_\+} (self)
+\item 
+def \hyperlink{classsrc_1_1policy__algorithms_1_1policy__iteration_1_1_policy_iteration_a7ee703e2982604f37990128d183e5422}{generate\+\_\+policy} (self, world)
+\begin{DoxyCompactList}\small\item\em Generates a policy. \end{DoxyCompactList}\item 
+def \hyperlink{classsrc_1_1policy__algorithms_1_1policy__iteration_1_1_policy_iteration_aac6bf2e59dc9bd9859bcfe5008fe45dd}{policy\+\_\+evalation} (self, iterations=1000, theta=.\+5)
+\begin{DoxyCompactList}\small\item\em Evaluates the self.\+\_\+policy\+\_\+table. \end{DoxyCompactList}\item 
+def \hyperlink{classsrc_1_1policy__algorithms_1_1policy__iteration_1_1_policy_iteration_a8ab119a11521c5adc06f05e7fa0b34e4}{policy\+\_\+improvement} (self)
+\begin{DoxyCompactList}\small\item\em Improves a current policy. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsrc_1_1policy__algorithms_1_1policy__iteration_1_1_policy_iteration_aee2489050fc350573d14bcaedc0e7233}\label{classsrc_1_1policy__algorithms_1_1policy__iteration_1_1_policy_iteration_aee2489050fc350573d14bcaedc0e7233}} 
+{\bfseries evaluations}
+\item 
+\mbox{\Hypertarget{classsrc_1_1policy__algorithms_1_1policy__iteration_1_1_policy_iteration_ae7427226f7500e18b30311364e014a47}\label{classsrc_1_1policy__algorithms_1_1policy__iteration_1_1_policy_iteration_ae7427226f7500e18b30311364e014a47}} 
+{\bfseries gamma}
+\item 
+\mbox{\Hypertarget{classsrc_1_1policy__algorithms_1_1policy__iteration_1_1_policy_iteration_a71b9669a8b7a0db5ba03c3aa23c09259}\label{classsrc_1_1policy__algorithms_1_1policy__iteration_1_1_policy_iteration_a71b9669a8b7a0db5ba03c3aa23c09259}} 
+{\bfseries states\+\_\+searched}
+\item 
+\mbox{\Hypertarget{classsrc_1_1policy__algorithms_1_1policy__iteration_1_1_policy_iteration_a8f00e8c08137d58b7feeec4613b08c07}\label{classsrc_1_1policy__algorithms_1_1policy__iteration_1_1_policy_iteration_a8f00e8c08137d58b7feeec4613b08c07}} 
+{\bfseries state\+\_\+complexity}
+\item 
+\mbox{\Hypertarget{classsrc_1_1policy__algorithms_1_1policy__iteration_1_1_policy_iteration_a466d9cdad847761400536fc4b006aa7f}\label{classsrc_1_1policy__algorithms_1_1policy__iteration_1_1_policy_iteration_a466d9cdad847761400536fc4b006aa7f}} 
+{\bfseries action\+\_\+complexity}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Policy Iteration Algorithm. 
+
+Uses policy iteration to generate policies 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classsrc_1_1policy__algorithms_1_1policy__iteration_1_1_policy_iteration_a7ee703e2982604f37990128d183e5422}\label{classsrc_1_1policy__algorithms_1_1policy__iteration_1_1_policy_iteration_a7ee703e2982604f37990128d183e5422}} 
+\index{src\+::policy\+\_\+algorithms\+::policy\+\_\+iteration\+::\+Policy\+Iteration@{src\+::policy\+\_\+algorithms\+::policy\+\_\+iteration\+::\+Policy\+Iteration}!generate\+\_\+policy@{generate\+\_\+policy}}
+\index{generate\+\_\+policy@{generate\+\_\+policy}!src\+::policy\+\_\+algorithms\+::policy\+\_\+iteration\+::\+Policy\+Iteration@{src\+::policy\+\_\+algorithms\+::policy\+\_\+iteration\+::\+Policy\+Iteration}}
+\subsubsection{\texorpdfstring{generate\+\_\+policy()}{generate\_policy()}}
+{\footnotesize\ttfamily def src.\+policy\+\_\+algorithms.\+policy\+\_\+iteration.\+Policy\+Iteration.\+generate\+\_\+policy (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{world }\end{DoxyParamCaption})}
+
+
+
+Generates a policy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world} & the domain to learn a policy for \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classsrc_1_1policy__algorithms_1_1policy__iteration_1_1_policy_iteration_aac6bf2e59dc9bd9859bcfe5008fe45dd}\label{classsrc_1_1policy__algorithms_1_1policy__iteration_1_1_policy_iteration_aac6bf2e59dc9bd9859bcfe5008fe45dd}} 
+\index{src\+::policy\+\_\+algorithms\+::policy\+\_\+iteration\+::\+Policy\+Iteration@{src\+::policy\+\_\+algorithms\+::policy\+\_\+iteration\+::\+Policy\+Iteration}!policy\+\_\+evalation@{policy\+\_\+evalation}}
+\index{policy\+\_\+evalation@{policy\+\_\+evalation}!src\+::policy\+\_\+algorithms\+::policy\+\_\+iteration\+::\+Policy\+Iteration@{src\+::policy\+\_\+algorithms\+::policy\+\_\+iteration\+::\+Policy\+Iteration}}
+\subsubsection{\texorpdfstring{policy\+\_\+evalation()}{policy\_evalation()}}
+{\footnotesize\ttfamily def src.\+policy\+\_\+algorithms.\+policy\+\_\+iteration.\+Policy\+Iteration.\+policy\+\_\+evalation (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{iterations = {\ttfamily 1000},  }\item[{}]{theta = {\ttfamily .5} }\end{DoxyParamCaption})}
+
+
+
+Evaluates the self.\+\_\+policy\+\_\+table. 
+
+Uses Standard policy Evaluation Algorithm \mbox{\Hypertarget{classsrc_1_1policy__algorithms_1_1policy__iteration_1_1_policy_iteration_a8ab119a11521c5adc06f05e7fa0b34e4}\label{classsrc_1_1policy__algorithms_1_1policy__iteration_1_1_policy_iteration_a8ab119a11521c5adc06f05e7fa0b34e4}} 
+\index{src\+::policy\+\_\+algorithms\+::policy\+\_\+iteration\+::\+Policy\+Iteration@{src\+::policy\+\_\+algorithms\+::policy\+\_\+iteration\+::\+Policy\+Iteration}!policy\+\_\+improvement@{policy\+\_\+improvement}}
+\index{policy\+\_\+improvement@{policy\+\_\+improvement}!src\+::policy\+\_\+algorithms\+::policy\+\_\+iteration\+::\+Policy\+Iteration@{src\+::policy\+\_\+algorithms\+::policy\+\_\+iteration\+::\+Policy\+Iteration}}
+\subsubsection{\texorpdfstring{policy\+\_\+improvement()}{policy\_improvement()}}
+{\footnotesize\ttfamily def src.\+policy\+\_\+algorithms.\+policy\+\_\+iteration.\+Policy\+Iteration.\+policy\+\_\+improvement (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Improves a current policy. 
+
+Uses standard Policy Improvement Algorithm 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/policy\+\_\+algorithms/policy\+\_\+iteration.\+py\end{DoxyCompactItemize}

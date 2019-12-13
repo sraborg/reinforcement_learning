@@ -1,13 +1,9 @@
 from interface import Interface
 
 
-"""
-@package docstring
-Documentation for this module.
-
-More details.
-"""
-
+##
+# Policy Algorithm Interface
+#
 
 class PolicyAlgorithm(Interface):
 

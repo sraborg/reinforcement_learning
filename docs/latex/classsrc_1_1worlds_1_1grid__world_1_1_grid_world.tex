@@ -1,0 +1,150 @@
+\hypertarget{classsrc_1_1worlds_1_1grid__world_1_1_grid_world}{}\section{src.\+worlds.\+grid\+\_\+world.\+Grid\+World Class Reference}
+\label{classsrc_1_1worlds_1_1grid__world_1_1_grid_world}\index{src.\+worlds.\+grid\+\_\+world.\+Grid\+World@{src.\+worlds.\+grid\+\_\+world.\+Grid\+World}}
+
+
+Grid World.  
+
+
+Inheritance diagram for src.\+worlds.\+grid\+\_\+world.\+Grid\+World\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.240000cm]{classsrc_1_1worlds_1_1grid__world_1_1_grid_world}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_1_1_action}{Action}
+\begin{DoxyCompactList}\small\item\em Inner Enumeration class representing the 4 valid grid actions. \end{DoxyCompactList}\item 
+class \hyperlink{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_1_1_relative_action}{Relative\+Action}
+\begin{DoxyCompactList}\small\item\em Inner Enumeration class representing the 4 stocastic action choices. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_afe3c1b392afbc00fb9a76c14a6e07899}\label{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_afe3c1b392afbc00fb9a76c14a6e07899}} 
+def \hyperlink{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_afe3c1b392afbc00fb9a76c14a6e07899}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+def \hyperlink{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a99e2c85924fd138eb2ee698e29ad1d09}{is\+\_\+terminal\+\_\+state} (self, state)
+\begin{DoxyCompactList}\small\item\em Check whether a state with locations (x,y) is a terminal state. \end{DoxyCompactList}\item 
+def \hyperlink{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_acfc919972f8a9c974baa36134ee980a0}{run\+\_\+policy} (self, policy, start\+\_\+state, iterations=1)
+\begin{DoxyCompactList}\small\item\em Generates episodes using a given policy. \end{DoxyCompactList}\item 
+def \hyperlink{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a93de8a88475e8ad0530fe703343028c9}{perform\+\_\+action} (self, state, action)
+\begin{DoxyCompactList}\small\item\em Determines the reward and resulting state after performing an action on the given state. \end{DoxyCompactList}\item 
+def \hyperlink{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a49dba2f7cbb6c4f5ccb05b6c1f7a0000}{load\+\_\+grid\+\_\+from\+\_\+file} (self, filename)
+\begin{DoxyCompactList}\small\item\em Creates an entire gridworld model by loading a file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a730e70e132a997b505c02d60556ecb1e}\label{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a730e70e132a997b505c02d60556ecb1e}} 
+{\bfseries grid\+\_\+width}
+\item 
+\mbox{\Hypertarget{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a0c1d14f392e1a056fbb320c0c88e719c}\label{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a0c1d14f392e1a056fbb320c0c88e719c}} 
+{\bfseries grid\+\_\+height}
+\item 
+\mbox{\Hypertarget{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_abbc8fe8413d9191be1488488d4550180}\label{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_abbc8fe8413d9191be1488488d4550180}} 
+{\bfseries probabilities}
+\item 
+\mbox{\Hypertarget{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a68e6b3958e05c0a649ddf87e33639398}\label{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a68e6b3958e05c0a649ddf87e33639398}} 
+{\bfseries reward}
+\item 
+\mbox{\Hypertarget{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a18aa801f8a69af6b6e4170dbfcf1b0fb}\label{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a18aa801f8a69af6b6e4170dbfcf1b0fb}} 
+{\bfseries trap\+\_\+exit\+\_\+reward}
+\item 
+\mbox{\Hypertarget{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_ace425e0be8de9023881ab40751531ba1}\label{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_ace425e0be8de9023881ab40751531ba1}} 
+{\bfseries goal\+\_\+exit\+\_\+reward}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Grid World. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a99e2c85924fd138eb2ee698e29ad1d09}\label{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a99e2c85924fd138eb2ee698e29ad1d09}} 
+\index{src\+::worlds\+::grid\+\_\+world\+::\+Grid\+World@{src\+::worlds\+::grid\+\_\+world\+::\+Grid\+World}!is\+\_\+terminal\+\_\+state@{is\+\_\+terminal\+\_\+state}}
+\index{is\+\_\+terminal\+\_\+state@{is\+\_\+terminal\+\_\+state}!src\+::worlds\+::grid\+\_\+world\+::\+Grid\+World@{src\+::worlds\+::grid\+\_\+world\+::\+Grid\+World}}
+\subsubsection{\texorpdfstring{is\+\_\+terminal\+\_\+state()}{is\_terminal\_state()}}
+{\footnotesize\ttfamily def src.\+worlds.\+grid\+\_\+world.\+Grid\+World.\+is\+\_\+terminal\+\_\+state (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{state }\end{DoxyParamCaption})}
+
+
+
+Check whether a state with locations (x,y) is a terminal state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & an (x, y) tuple \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true/false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a49dba2f7cbb6c4f5ccb05b6c1f7a0000}\label{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a49dba2f7cbb6c4f5ccb05b6c1f7a0000}} 
+\index{src\+::worlds\+::grid\+\_\+world\+::\+Grid\+World@{src\+::worlds\+::grid\+\_\+world\+::\+Grid\+World}!load\+\_\+grid\+\_\+from\+\_\+file@{load\+\_\+grid\+\_\+from\+\_\+file}}
+\index{load\+\_\+grid\+\_\+from\+\_\+file@{load\+\_\+grid\+\_\+from\+\_\+file}!src\+::worlds\+::grid\+\_\+world\+::\+Grid\+World@{src\+::worlds\+::grid\+\_\+world\+::\+Grid\+World}}
+\subsubsection{\texorpdfstring{load\+\_\+grid\+\_\+from\+\_\+file()}{load\_grid\_from\_file()}}
+{\footnotesize\ttfamily def src.\+worlds.\+grid\+\_\+world.\+Grid\+World.\+load\+\_\+grid\+\_\+from\+\_\+file (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{filename }\end{DoxyParamCaption})}
+
+
+
+Creates an entire gridworld model by loading a file. 
+
+File must contain a grid of x,y rows and columns. Each entry must be \textquotesingle{}B\textquotesingle{}, \textquotesingle{}G\textquotesingle{}, \textquotesingle{}R\textquotesingle{}, \textquotesingle{}W\textquotesingle{}, \textquotesingle{}Y\textquotesingle{} where \textquotesingle{}B\textquotesingle{} =$>$ black (invalid) state, \textquotesingle{}G\textquotesingle{} =$>$ green (goal) state, \textquotesingle{}R\textquotesingle{} =$>$ red (trap) state, \textquotesingle{}W\textquotesingle{} =$>$ white (normal) state, \textquotesingle{}Y\textquotesingle{} =$>$ yellow (start) state.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & the name of the file (e.\+g. grid.\+txt) \\
+\hline
+{\em reward} & optional keyword that sets reward for white (normal) states globally \\
+\hline
+{\em trap\+\_\+value} & optional keyword that sets reward for red (trap) states globally \\
+\hline
+{\em goal\+\_\+value} & optional keyword that sets reward for green (goal) states globally \\
+\hline
+{\em probabilities} & optional keyword that holds a dictionary with the following values\+: self.\+Action.\+UP =$>$ probability of going forward, self.\+Action.\+R\+I\+G\+HT =$>$ probability of going right, self.\+Action.\+L\+E\+FT =$>$ probability of going left, self.\+Action.\+D\+O\+WN =$>$ probability of going backward \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a93de8a88475e8ad0530fe703343028c9}\label{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_a93de8a88475e8ad0530fe703343028c9}} 
+\index{src\+::worlds\+::grid\+\_\+world\+::\+Grid\+World@{src\+::worlds\+::grid\+\_\+world\+::\+Grid\+World}!perform\+\_\+action@{perform\+\_\+action}}
+\index{perform\+\_\+action@{perform\+\_\+action}!src\+::worlds\+::grid\+\_\+world\+::\+Grid\+World@{src\+::worlds\+::grid\+\_\+world\+::\+Grid\+World}}
+\subsubsection{\texorpdfstring{perform\+\_\+action()}{perform\_action()}}
+{\footnotesize\ttfamily def src.\+worlds.\+grid\+\_\+world.\+Grid\+World.\+perform\+\_\+action (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{state,  }\item[{}]{action }\end{DoxyParamCaption})}
+
+
+
+Determines the reward and resulting state after performing an action on the given state. 
+
+Actions selected are weighted using the probabilities defined in self.\+\_\+state\+\_\+actions.\+get(state, action)
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & The starting state \\
+\hline
+{\em action} & The action to perform \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the resulting state, the reward 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_acfc919972f8a9c974baa36134ee980a0}\label{classsrc_1_1worlds_1_1grid__world_1_1_grid_world_acfc919972f8a9c974baa36134ee980a0}} 
+\index{src\+::worlds\+::grid\+\_\+world\+::\+Grid\+World@{src\+::worlds\+::grid\+\_\+world\+::\+Grid\+World}!run\+\_\+policy@{run\+\_\+policy}}
+\index{run\+\_\+policy@{run\+\_\+policy}!src\+::worlds\+::grid\+\_\+world\+::\+Grid\+World@{src\+::worlds\+::grid\+\_\+world\+::\+Grid\+World}}
+\subsubsection{\texorpdfstring{run\+\_\+policy()}{run\_policy()}}
+{\footnotesize\ttfamily def src.\+worlds.\+grid\+\_\+world.\+Grid\+World.\+run\+\_\+policy (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{policy,  }\item[{}]{start\+\_\+state,  }\item[{}]{iterations = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+
+Generates episodes using a given policy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em the} & policy to follow \\
+\hline
+{\em start\+\_\+state} & the initial state \\
+\hline
+{\em iterations} & optional keyword that determines the number of episodes to run \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/worlds/grid\+\_\+world.\+py\end{DoxyCompactItemize}

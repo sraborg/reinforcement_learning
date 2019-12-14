@@ -19,8 +19,12 @@ class GUIInterface(implements(UserInterface)):
         self.init_window()
 
     def generatePolicy(self):
-        policy = self._currentPolicyAlgorithm.generate_policy(self._world)
-        print(policy)
+
+        if self._currentPolicyAlgorithm is not None:
+            policy = self._currentPolicyAlgorithm.generate_policy(self._world)
+            print(policy)
+        else:
+            print("Policy Needs to be selected")
 
     def onSelectPolicyIteration(self):
         if "policyIteration" not in self._policyAlgorithm.keys():

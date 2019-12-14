@@ -25,6 +25,27 @@ class AbstractWorld(metaclass=abc.ABCMeta):
     def run_policy(self, policy, iterations=1):
         pass
 
+    def get_episode(self, policy, start_state, max_iterations=1000):
+        episode = []
+        next_state = start_state
+
+        i = 0
+        while not self.is_terminal_state(next_state):
+            state = next_state
+            action = policy[next_state]
+            next_state, reward = self.perform_action(next_state, action)  # Perform Step
+
+            episode.append((state, policy[next_state], reward, next_state))  # Add (state, action, reward) to episode
+
+            #i = i + 1
+
+            if(i == max_iterations):
+                episode = []            # Failed to find terminal state
+                break
+
+        return episode
+
+
     @abc.abstractmethod
     def perform_action(self, state, action):
         pass

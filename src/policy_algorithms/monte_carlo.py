@@ -11,7 +11,7 @@ import random
 #
 
 
-class MontyCarlo(implements(PolicyAlgorithm)):
+class MonteCarlo(implements(PolicyAlgorithm)):
 
     def __init__(self):
         super().__init__()
@@ -62,6 +62,7 @@ class MontyCarlo(implements(PolicyAlgorithm)):
                     self._returns[state].append(G)
                     self._value_table[state] = mean(self._returns[state])
 
+
     def generate_episode(self, world, policy, start_state):
         episode = []
         next_state = start_state
@@ -104,3 +105,4 @@ class MontyCarlo(implements(PolicyAlgorithm)):
 
             new_action = max(actions_values, key=itemgetter(1))[0]
             self._policy_table[state] = new_action
+

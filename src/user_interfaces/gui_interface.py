@@ -6,6 +6,9 @@ from tkinter import *
 # GUI User Interface
 #
 from src.policy_algorithms.policy_iteration import PolicyIteration
+from src.policy_algorithms.value_iteration import ValueIteration
+from src.policy_algorithms.monte_carlo import MonteCarlo
+
 from src.worlds.grid_world import GridWorld
 
 
@@ -34,15 +37,15 @@ class GUIInterface(implements(UserInterface)):
         print("PI Selected")
 
     def onSelectValueIteration(self):
-        if "policyIteration" not in self._policyAlgorithm.keys():
-            self._policyAlgorithm["ValueIteration"] = PolicyIteration()
+        if "ValueIteration" not in self._policyAlgorithm.keys():
+            self._policyAlgorithm["ValueIteration"] = ValueIteration()
         self._currentPolicyAlgorithm = self._policyAlgorithm["ValueIteration"]
 
         print("VI Selected")
 
     def onSelectMonteCarlo(self):
-        if "policyIteration" not in self._policyAlgorithm.keys():
-            self._policyAlgorithm["MonteCarlo"] = PolicyIteration()
+        if "MonteCarlo" not in self._policyAlgorithm.keys():
+            self._policyAlgorithm["MonteCarlo"] = MonteCarlo()
         self._currentPolicyAlgorithm = self._policyAlgorithm["MonteCarlo"]
 
         print("Monte Carlo Selected")

@@ -37,7 +37,7 @@ class AbstractWorld(metaclass=abc.ABCMeta):
 
             episode.append((state, policy[next_state], reward, next_state))  # Add (state, action, reward) to episode
 
-            #i = i + 1
+            i = i + 1
 
             if(i == max_iterations):
                 episode = []            # Failed to find terminal state

@@ -50,7 +50,7 @@ class PolicyIteration(implements(PolicyAlgorithm)):
             if(self._policy_stable):
                 break
 
-        print("Policy Evaluation/Improvement Cycles" + str(self.evaluation_improvement_cycles))
+        print("Policy Evaluation/Improvement Cycles: " + str(self.evaluation_improvement_cycles))
         print(self._policy_improvement_analytics.get_analytics())
         print(self._policy_evaluation_analytics.get_analytics())
         return self._policy_table.copy()
@@ -60,7 +60,7 @@ class PolicyIteration(implements(PolicyAlgorithm)):
     #
     # Uses Standard policy Evaluation Algorithm
     #
-    def policy_evalation(self, iterations=1000, theta=.5):
+    def policy_evalation(self, iterations=10000, theta=.5):
         delta = 0
 
         for i in range(iterations):

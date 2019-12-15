@@ -94,7 +94,7 @@ class GridWorld(AbstractWorld, ABC):
     #
     def load_grid_from_file(self, filename):
 
-        directory = Path("./grids")
+        directory = Path(__file__).parent / "grids"
 
         # Preload grid_ values
         with open(directory / filename) as file:

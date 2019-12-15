@@ -4,11 +4,12 @@ from src.worlds.grid_world import GridWorld
 
 class TestGridWorld(unittest.TestCase):
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.gridWorld = GridWorld()
         pass
 
-    def test_relative(self):
+    def test_perform_action(self):
         self.gridWorld.load_grid_from_file("grid_1.txt")
         pass
 

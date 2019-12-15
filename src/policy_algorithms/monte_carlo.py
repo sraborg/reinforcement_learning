@@ -31,7 +31,7 @@ class MonteCarlo(implements(PolicyAlgorithm)):
 
         # Initialization
         for state in states:
-            self._policy_table[state] = random.choice(world.get_actions(state))     # Initialize random policy
+            self._policy_table[state] = self._world.Action.RIGHT #random.choice(world.get_actions(state))     # Initialize random policy
 
             for action in self._world.get_actions(state):
                 self._q_table[(state, action)] = random.uniform(0, 10)

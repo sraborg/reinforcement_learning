@@ -5,9 +5,8 @@ from operator import itemgetter
 import random
 
 ##
-# Policy Iteration Algorithm
+# Monte Carlo Algorithm
 #
-# Uses policy iteration to generate policies
 #
 
 

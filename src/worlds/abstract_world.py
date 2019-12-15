@@ -37,10 +37,10 @@ class AbstractWorld(metaclass=abc.ABCMeta):
             next_state, reward = self.perform_action(state, action)  # Perform Step
 
             if next_state is None:
-                episode.append((state, policy[next_state], reward, None))
+                episode.append((state, policy[state], reward, None))
                 return episode
             else:
-                episode.append((state, policy[next_state], reward, next_state))  # Add (state, action, reward) to episode
+                episode.append((state, policy[state], reward, next_state))  # Add (state, action, reward) to episode
 
         episode = []    # Failed to find terminal state
         return episode

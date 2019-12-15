@@ -74,6 +74,9 @@ class GridWorld(AbstractWorld, ABC):
         successor_states = np.array(successor_states, dtype=object)
 
         next_state = successor_states[np.random.choice(len(successor_states), p=probabilities)]
+        if next_state is None:
+            return None, reward
+
         return tuple(next_state), reward
 
 
@@ -130,9 +133,9 @@ class GridWorld(AbstractWorld, ABC):
                     # Handle Terminal States
                     if self.is_terminal_state(state):
                         if self._state_types[state[0]][state[1]] == "R":
-                            self.add_transition_old(((state, self.Action.EXIT), [(self.probabilities[self.Action.EXIT], None)]))
+                            self.add_transition(state, self.Action.EXIT, [(self.probabilities[self.Action.EXIT], None)])
                         elif self._state_types[state[0]][state[1]] == "G":
-                            self.add_transition_old(((state, self.Action.EXIT), [(self.probabilities[self.Action.EXIT], None)]))
+                            self.add_transition(state, self.Action.EXIT, [(self.probabilities[self.Action.EXIT], None)])
 
                     # Handle Non-Terminal States
                     else:

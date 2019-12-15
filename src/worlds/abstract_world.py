@@ -29,20 +29,20 @@ class AbstractWorld(metaclass=abc.ABCMeta):
         episode = []
         next_state = start_state
 
-        i = 0
-        while not self.is_terminal_state(next_state):
+        #i = 0
+        #while not self.is_terminal_state(next_state):
+        for i in range(max_iterations):
             state = next_state
-            action = policy[next_state]
-            next_state, reward = self.perform_action(next_state, action)  # Perform Step
+            action = policy[state]
+            next_state, reward = self.perform_action(state, action)  # Perform Step
 
-            episode.append((state, policy[next_state], reward, next_state))  # Add (state, action, reward) to episode
+            if next_state is None:
+                episode.append((state, policy[next_state], reward, None))
+                return episode
+            else:
+                episode.append((state, policy[next_state], reward, next_state))  # Add (state, action, reward) to episode
 
-            i = i + 1
-
-            if(i == max_iterations):
-                episode = []            # Failed to find terminal state
-                break
-
+        episode = []    # Failed to find terminal state
         return episode
 
 
